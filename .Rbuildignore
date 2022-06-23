@@ -1,2 +1,8 @@
 ^ggflowchart\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+.lintr
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
