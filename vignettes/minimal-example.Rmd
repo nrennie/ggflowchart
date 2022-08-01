@@ -1,0 +1,43 @@
+---
+title: "Minimal Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{minimal-example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, warning=FALSE}
+library(ggflowchart)
+```
+
+Create a tibble (or data frame) with each row representing an edge.
+
+```{r data}
+data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"),
+                       to = c("B", "C", "D", "E", "F", "G"))
+```
+
+Create the flowchart using the `ggflowchart()` function.
+
+```{r flowchart}
+ggflowchart(data)
+```
+
+Change the default styling.
+
+```{r flowchart-style}
+ggflowchart(data,
+            colour = "red",
+            text_colour = "red",
+            arrow_colour = "red",
+            family = "serif",
+            x_nudge = 0.25)
+```

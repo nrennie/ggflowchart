@@ -2,18 +2,19 @@
 #'
 #' Obtains the coordinates for the nodes of the flowchart from the input edges
 #'
-#' @param data Data frame or tibble of edges. Must have two columns, first column are "from" node names,
+#' @param data Data frame or tibble of edges. Must have at least two columns, if not labelled "from"
+#' and "to" it is assumed first column are "from" node names,
 #' second column is "to" node names. Node names must be unique.
 #' @importFrom dplyr %>%
 #' @return A tibble.
 #' @export
 
 get_layout <- function(data) {
-  if (ncol(data) != 2) {
-    stop("Incorrect number of columns in data: input data should contain exactly two columns.")
+  if (ncol(data) < 2) {
+    stop("Incorrect number of columns in data: input data should contain at least two columns.")
   }
   if (!any(colnames(data) == c("from", "to"))) {
-    colnames(data) <- c("from", "to")
+    colnames(data)[1:2] <- c("from", "to")
   }
   g <- igraph::graph_from_data_frame(data, directed = TRUE)
   coords <- igraph::layout_as_tree(g)

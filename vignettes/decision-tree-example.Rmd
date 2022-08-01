@@ -46,8 +46,7 @@ Optionally, also define additional node attributes.
 node_data <- tibble::tibble(name = c("Goldilocks", "Porridge", "Just right", "Chairs",
                                      "Just right2", "Beds", "Just right3", "Too cold",
                                      "Too hot", "Still too big", "Too big", "Too soft",
-                                     "Too hard", "Bears!"),
-                            type = factor(c(1, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 1))) %>%
+                                     "Too hard", "Bears!")) %>%
   dplyr::mutate(label = gsub("\\d+$", "", name))
 ```
 
@@ -61,9 +60,13 @@ Optionally, add some styling using the {ggplot2} `theme()` function and title us
 
 ```{r flowchart-style}
 library(ggplot2)
-ggflowchart(goldilocks, node_data) +
-  labs(title = "The Goldilocks Decision Tree",
-       caption = "N. Rennie") +
-  theme(plot.background = element_rect(fill = "lightblue"),
-        plot.title = element_text(size = 20, hjust = 0.5, face = "bold"))
+ggflowchart(goldilocks,
+            node_data,
+            colour = "#585c45",
+            text_colour = "#585c45",
+            arrow_colour = "#585c45") +
+  scale_x_reverse() +
+  labs(title = "The Goldilocks Decision Tree") +
+  theme(plot.background = element_rect(colour = "#f2e4c1", fill = "#f2e4c1"),
+        plot.title = element_text(size = 20, hjust = 0.5, face = "bold", colour = "#585c45"))
 ```

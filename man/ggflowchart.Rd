@@ -4,7 +4,17 @@
 \alias{ggflowchart}
 \title{Generate a flowchart in ggplot2}
 \usage{
-ggflowchart(data, node_data = NULL)
+ggflowchart(
+  data,
+  node_data = NULL,
+  fill = "white",
+  colour = "black",
+  text_colour = "black",
+  arrow_colour = "black",
+  family = "sans",
+  x_nudge = 0.35,
+  y_nudge = 0.25
+)
 }
 \arguments{
 \item{data}{Data frame or tibble of edges. Must have two columns, first column are "from" node names,
@@ -12,6 +22,20 @@ second column is "to" node names. Node names must be unique.}
 
 \item{node_data}{Data frame or tibble of node information. Must have at least one column
 called "name" for node names to join by. Default NULL.}
+
+\item{fill}{Fill colour of nodes. Must be a valid colour name or hex code. Default "white".}
+
+\item{colour}{Outline colour of nodes. Must be a valid colour name or hex code. Default "black".}
+
+\item{text_colour}{Colour of labels in nodes. Must be a valid colour name or hex code. Default "black".}
+
+\item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex code. Default "black".}
+
+\item{family}{Font family for node labels. Default "sans"}
+
+\item{x_nudge}{Distance from centre of edge of node box in x direction. Default 0.35.}
+
+\item{y_nudge}{Distance from centre of edge of node box in y direction. Default 0.25.}
 }
 \value{
 A ggplot2 object.

@@ -7,7 +7,8 @@
 get_layout(data)
 }
 \arguments{
-\item{data}{Data frame or tibble of edges. Must have two columns, first column are "from" node names,
+\item{data}{Data frame or tibble of edges. Must have at least two columns, if not labelled "from"
+and "to" it is assumed first column are "from" node names,
 second column is "to" node names. Node names must be unique.}
 }
 \value{
