@@ -1,6 +1,6 @@
-# {ggflowchart}
+# {ggflowchart} <img src="man/figures/logo.png" align="right" width="120" />
 
-{ggflowchart} is an R package for producing flowcharts using ggplot2.
+{ggflowchart} is an R package for producing flowcharts using {ggplot2}.
 
 ## Installation
 
@@ -20,4 +20,3 @@ Upcoming features:
 * Using labels that are not equal to the node names.
 * Add check to make sure all nodes in node_data are contained in the layout.
 * GitHub actions.
-* Hex sticker.
