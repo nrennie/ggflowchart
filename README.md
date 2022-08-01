@@ -1,3 +1,7 @@
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->
+
 # {ggflowchart} <img src="man/figures/logo.png" align="right" width="120" />
 
 {ggflowchart} is an R package for producing flowcharts using {ggplot2}.
@@ -19,4 +23,3 @@ Upcoming features:
 * Better compatibility with {ggplot2} e.g. inheriting aesthetics.
 * Using labels that are not equal to the node names.
 * Add check to make sure all nodes in node_data are contained in the layout.
-* GitHub actions.
