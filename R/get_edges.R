@@ -15,10 +15,11 @@ get_edges <- function(data, plot_nodes) {
   if (ncol(data) < 2) {
     stop("Incorrect number of columns in data: input data should contain at least two columns.")
   }
-  if (!any(colnames(data) == c("from", "to"))) {
+  if (!all(c("from", "to") %in% colnames(data))) {
     colnames(data)[1:2] <- c("from", "to")
   }
   plot_edges <- data %>%
+    dplyr::select(c(.data$from, .data$to)) %>%
     dplyr::mutate(id = dplyr::row_number()) %>%
     tidyr::pivot_longer(cols = c("from", "to"),
                         names_to = "s_e",

@@ -19,9 +19,13 @@ remotes::install_github("nrennie/ggflowchart")
 
 The idea of {ggflowchart} is to create simple flowcharts with minimal effort. Currently, all flowcharts are constructed using the `ggflowchart()` function. For the most basic flowchart, it takes as input a data frame containing (at least) two columns for the start and end points of the edges in the flowchart.
 
-```{r minimal}
+```
 data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"),
                        to = c("B", "C", "D", "E", "F", "G"))
+```
+The flowchart is then created using `ggflowchart()`.
+
+```
 ggflowchart(data)
 ```
 
