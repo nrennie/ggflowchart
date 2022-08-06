@@ -7,6 +7,7 @@
 #' called "name" for node names to join by. To change labels that appear on nodes, include
 #' a column with the name "label".
 #' @return A tibble.
+#' @noRd
 
 add_node_attr <- function(node_layout, node_data) {
   # define notin

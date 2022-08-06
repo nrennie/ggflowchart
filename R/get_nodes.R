@@ -8,6 +8,7 @@
 #' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #' @return A tibble.
+#' @noRd
 
 get_nodes <- function(node_layout,
                       x_nudge = 0.35,

@@ -2,3 +2,9 @@ url: https://nrennie.github.io/ggflowchart/
 template:
   package: nrenniepkgdown
   bootstrap: 5
+articles:
+- title: Examples
+navbar: ~
+contents:
+- minimal-example
+- decision-tree-example
