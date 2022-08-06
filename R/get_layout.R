@@ -13,9 +13,10 @@ get_layout <- function(data) {
   if (ncol(data) < 2) {
     stop("Incorrect number of columns in data: input data should contain at least two columns.")
   }
-  if (!any(colnames(data) == c("from", "to"))) {
+  if (!all(c("from", "to") %in% colnames(data))) {
     colnames(data)[1:2] <- c("from", "to")
   }
+  data <- dplyr::select(data, c(.data$from, .data$to))
   g <- igraph::graph_from_data_frame(data, directed = TRUE)
   coords <- igraph::layout_as_tree(g)
   colnames(coords) <- c("x", "y")
