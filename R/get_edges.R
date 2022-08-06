@@ -9,7 +9,6 @@
 #' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #' @return A tibble.
-#' @export
 
 get_edges <- function(data, plot_nodes) {
   if (ncol(data) < 2) {

@@ -4,9 +4,9 @@
 #'
 #' @param node_layout Data frame of node layout returned by \code{get_layout()}.
 #' @param node_data Data frame or tibble of node information. Must have at least one column
-#' called "name" for node names to join by.
+#' called "name" for node names to join by. To change labels that appear on nodes, include
+#' a column with the name "label".
 #' @return A tibble.
-#' @export
 
 add_node_attr <- function(node_layout, node_data) {
   # define notin

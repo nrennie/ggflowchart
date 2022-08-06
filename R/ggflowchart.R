@@ -16,6 +16,9 @@
 #' @importFrom rlang .data
 #' @return A ggplot2 object.
 #' @export
+#' @examples
+#' data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"), to = c("B", "C", "D", "E", "F", "G"))
+#' ggflowchart(data)
 
 ggflowchart <- function(data,
                         node_data = NULL,

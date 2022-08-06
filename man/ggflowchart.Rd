@@ -43,3 +43,7 @@ A ggplot2 object.
 \description{
 Generates the flowchart
 }
+\examples{
+data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"), to = c("B", "C", "D", "E", "F", "G"))
+ggflowchart(data)
+}

@@ -7,7 +7,6 @@
 #' second column is "to" node names. Node names must be unique.
 #' @importFrom dplyr %>%
 #' @return A tibble.
-#' @export
 
 get_layout <- function(data) {
   if (ncol(data) < 2) {
