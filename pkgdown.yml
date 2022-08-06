@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   decision-tree-example: decision-tree-example.html
   minimal-example: minimal-example.html
-last_built: 2022-08-06T01:53Z
+last_built: 2022-08-06T02:10Z
 urls:
   reference: https://nrennie.github.io/ggflowchart/reference
   article: https://nrennie.github.io/ggflowchart/articles
