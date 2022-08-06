@@ -2,5 +2,4 @@
 There were no ERRORs,  WARNINGs, or NOTEs. 
 
 ## Downstream dependencies
-I have also run R CMD check on downstream dependencies of ggflowchart and 
-all packages that I could install passed.
+There are currently no downstream dependencies for this package.

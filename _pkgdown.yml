@@ -4,6 +4,7 @@ template:
   bootstrap: 5
 articles:
 - title: Examples
-  navbar: ~
+  navbar: Examples
   contents:
   - minimal-example
+  - decision-tree-example
