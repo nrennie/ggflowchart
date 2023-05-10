@@ -54,7 +54,7 @@ ggflowchart <- function(data,
   "%notin%" <- function(x, y) {
     !("%in%"(x, y))
   }
-  #
+  # convert arguments
   fill <- rlang::ensym(fill)
   # set colours
   if (!is.null(color)) {
