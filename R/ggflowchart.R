@@ -13,6 +13,7 @@
 #' @param family Font family for node labels. Default "sans"
 #' @param x_nudge Distance from centre of edge of node box in x direction. Default 0.35.
 #' @param y_nudge Distance from centre of edge of node box in y direction. Default 0.25.
+#' @param horizontal Boolean specifying if flowchart should go from left to right. Default FALSE.
 #' @importFrom rlang .data
 #' @return A ggplot2 object.
 #' @export
@@ -28,7 +29,8 @@ ggflowchart <- function(data,
                         arrow_colour = "black",
                         family = "sans",
                         x_nudge = 0.35,
-                        y_nudge = 0.25) {
+                        y_nudge = 0.25,
+                        horizontal = FALSE) {
   # define notin
   "%notin%" <- function(x, y) {
     !("%in%" (x, y))
@@ -75,5 +77,11 @@ ggflowchart <- function(data,
                        colour = arrow_colour) +
     ggplot2::theme_void() +
     ggplot2::theme(plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm"))
+  # check if horizontal
+  if (horizontal == TRUE) {
+    p <- p +
+      ggplot2::coord_flip() +
+      ggplot2::scale_y_reverse()
+  }
   return(p)
 }
