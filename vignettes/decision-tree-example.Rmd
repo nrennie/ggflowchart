@@ -67,7 +67,7 @@ ggflowchart(goldilocks, node_data)
 We can also specify a column in `node_data` we want to colour the nodes based on: 
 
 ```{r flowchart-fill-columm}
-node_data <- node_data |> 
+node_data <- node_data %>%
   dplyr::mutate(
     type = c("Character", "Question", "Answer",
              "Question", "Answer", "Question",
