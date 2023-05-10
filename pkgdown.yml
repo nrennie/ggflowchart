@@ -1,10 +1,10 @@
-pandoc: 2.14.2
-pkgdown: 2.0.6
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   decision-tree-example: decision-tree-example.html
   minimal-example: minimal-example.html
-last_built: 2022-08-06T02:55Z
+last_built: 2023-05-10T15:48Z
 urls:
   reference: https://nrennie.github.io/ggflowchart/reference
   article: https://nrennie.github.io/ggflowchart/articles
