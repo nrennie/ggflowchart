@@ -13,7 +13,8 @@ ggflowchart(
   arrow_colour = "black",
   family = "sans",
   x_nudge = 0.35,
-  y_nudge = 0.25
+  y_nudge = 0.25,
+  horizontal = FALSE
 )
 }
 \arguments{
@@ -36,6 +37,8 @@ called "name" for node names to join by. Default NULL.}
 \item{x_nudge}{Distance from centre of edge of node box in x direction. Default 0.35.}
 
 \item{y_nudge}{Distance from centre of edge of node box in y direction. Default 0.25.}
+
+\item{horizontal}{Boolean specifying if flowchart should go from left to right. Default FALSE.}
 }
 \value{
 A ggplot2 object.
