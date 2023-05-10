@@ -53,7 +53,7 @@ ggflowchart <- function(data,
     !("%in%"(x, y))
   }
   #
-  fill <- ensym(fill)
+  fill <- rlang::ensym(fill)
   # set colours
   if (!is.null(color)) {
     colour <- color
