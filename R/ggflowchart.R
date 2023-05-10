@@ -35,7 +35,6 @@
 #' @examples
 #' data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"), to = c("B", "C", "D", "E", "F", "G"))
 #' ggflowchart(data)
-
 ggflowchart <- function(data,
                         node_data = NULL,
                         fill = "white",
@@ -51,58 +50,76 @@ ggflowchart <- function(data,
                         arrow_color = NULL) {
   # define notin
   "%notin%" <- function(x, y) {
-    !("%in%" (x, y))
+    !("%in%"(x, y))
   }
   # set colours
   if (!is.null(color)) {
-    colour = color
+    colour <- color
   }
   if (!is.null(text_color)) {
-    text_colour = color
+    text_colour <- color
   }
   if (!is.null(arrow_color)) {
-    arrow_colour = color
+    arrow_colour <- color
   }
   # define position of nodes
   node_layout <- get_layout(data = data)
   # add edge attributes
   node_layout <- add_node_attr(node_layout, node_data)
   # define edges of node rectangles
-  plot_nodes <- get_nodes(node_layout = node_layout,
-                          x_nudge = x_nudge,
-                          y_nudge = y_nudge)
+  plot_nodes <- get_nodes(
+    node_layout = node_layout,
+    x_nudge = x_nudge,
+    y_nudge = y_nudge
+  )
   # check if labels exist as a column,
   # if not, add it as a duplicate of name
   if ("label" %notin% colnames(plot_nodes)) {
     plot_nodes <- dplyr::mutate(plot_nodes, label = .data$name)
   }
   # define arrows
-  plot_edges <- get_edges(data = data,
-                          plot_nodes = plot_nodes)
+  plot_edges <- get_edges(
+    data = data,
+    plot_nodes = plot_nodes
+  )
 
   # create the flowchart
   p <- ggplot2::ggplot() +
-    ggplot2::geom_rect(data = plot_nodes,
-                       mapping = ggplot2::aes(xmin = .data$xmin,
-                                              ymin = .data$ymin,
-                                              xmax = .data$xmax,
-                                              ymax = .data$ymax),
-                       alpha = 0.5,
-                       colour = colour,
-                       fill = fill) +
-    ggplot2::geom_text(data = plot_nodes,
-                       mapping = ggplot2::aes(x = .data$x,
-                                              y = .data$y,
-                                              label = .data$label),
-                       family = family,
-                       colour = text_colour) +
-    ggplot2::geom_path(data = plot_edges,
-                       mapping = ggplot2::aes(x = .data$x,
-                                              y = .data$y,
-                                              group = .data$id),
-                       arrow = ggplot2::arrow(length = ggplot2::unit(0.3, "cm"),
-                                              type = "closed"),
-                       colour = arrow_colour) +
+    ggplot2::geom_rect(
+      data = plot_nodes,
+      mapping = ggplot2::aes(
+        xmin = .data$xmin,
+        ymin = .data$ymin,
+        xmax = .data$xmax,
+        ymax = .data$ymax
+      ),
+      alpha = 0.5,
+      colour = colour,
+      fill = fill
+    ) +
+    ggplot2::geom_text(
+      data = plot_nodes,
+      mapping = ggplot2::aes(
+        x = .data$x,
+        y = .data$y,
+        label = .data$label
+      ),
+      family = family,
+      colour = text_colour
+    ) +
+    ggplot2::geom_path(
+      data = plot_edges,
+      mapping = ggplot2::aes(
+        x = .data$x,
+        y = .data$y,
+        group = .data$id
+      ),
+      arrow = ggplot2::arrow(
+        length = ggplot2::unit(0.3, "cm"),
+        type = "closed"
+      ),
+      colour = arrow_colour
+    ) +
     ggplot2::theme_void() +
     ggplot2::theme(plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm"))
   # check if horizontal
