@@ -52,6 +52,8 @@ ggflowchart <- function(data,
   "%notin%" <- function(x, y) {
     !("%in%"(x, y))
   }
+  #
+  fill <- ensym(fill)
   # set colours
   if (!is.null(color)) {
     colour <- color
@@ -84,19 +86,39 @@ ggflowchart <- function(data,
   )
 
   # create the flowchart
-  p <- ggplot2::ggplot() +
-    ggplot2::geom_rect(
-      data = plot_nodes,
-      mapping = ggplot2::aes(
-        xmin = .data$xmin,
-        ymin = .data$ymin,
-        xmax = .data$xmax,
-        ymax = .data$ymax
-      ),
-      alpha = 0.5,
-      colour = colour,
-      fill = fill
-    ) +
+  p <- ggplot2::ggplot()
+  # add nodes
+  if (as.character(fill) %in% colnames(node_data)) {
+    p <- p +
+      ggplot2::geom_rect(
+        data = plot_nodes,
+        mapping = ggplot2::aes(
+          xmin = .data$xmin,
+          ymin = .data$ymin,
+          xmax = .data$xmax,
+          ymax = .data$ymax,
+          fill = !!fill
+        ),
+        alpha = 0.5,
+        colour = colour
+      )
+  } else {
+    p <- p +
+      ggplot2::geom_rect(
+        data = plot_nodes,
+        mapping = ggplot2::aes(
+          xmin = .data$xmin,
+          ymin = .data$ymin,
+          xmax = .data$xmax,
+          ymax = .data$ymax
+        ),
+        alpha = 0.5,
+        colour = colour,
+        fill = as.character(fill)
+      )
+  }
+  # add text
+  p <- p +
     ggplot2::geom_text(
       data = plot_nodes,
       mapping = ggplot2::aes(
