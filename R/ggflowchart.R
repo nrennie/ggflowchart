@@ -2,18 +2,33 @@
 #'
 #' Generates the flowchart
 #'
-#' @param data Data frame or tibble of edges. Must have two columns, first column are "from" node names,
+#' @param data Data frame or tibble of edges. Must have two columns, first
+#' column are "from" node names,
 #' second column is "to" node names. Node names must be unique.
-#' @param node_data Data frame or tibble of node information. Must have at least one column
+#' @param node_data Data frame or tibble of node information. Must have at
+#' least one column
 #' called "name" for node names to join by. Default NULL.
-#' @param fill Fill colour of nodes. Must be a valid colour name or hex code. Default "white".
-#' @param colour Outline colour of nodes. Must be a valid colour name or hex code. Default "black".
-#' @param text_colour Colour of labels in nodes. Must be a valid colour name or hex code. Default "black".
-#' @param arrow_colour Colour of arrows. Must be a valid colour name or hex code. Default "black".
+#' @param fill Fill colour of nodes. Must be a valid colour name or hex
+#' code. Default "white".
+#' @param colour Outline colour of nodes. Must be a valid colour name or hex
+#' code. Default "black".
+#' @param text_colour Colour of labels in nodes. Must be a valid colour name
+#' or hex code. Default "black".
+#' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
+#' code. Default "black".
 #' @param family Font family for node labels. Default "sans"
-#' @param x_nudge Distance from centre of edge of node box in x direction. Default 0.35.
-#' @param y_nudge Distance from centre of edge of node box in y direction. Default 0.25.
-#' @param horizontal Boolean specifying if flowchart should go from left to right. Default FALSE.
+#' @param x_nudge Distance from centre of edge of node box in x direction.
+#' Default 0.35.
+#' @param y_nudge Distance from centre of edge of node box in y direction.
+#' Default 0.25.
+#' @param horizontal Boolean specifying if flowchart should go from left to
+#' right. Default FALSE.
+#' @param color Outline colour of nodes - overrides colour. Must be a valid colour name or hex
+#' code. Default NULL.
+#' @param text_color Colour of labels in nodes - overrides text_colour. Must be a valid colour name
+#' or hex code. Default NULL.
+#' @param arrow_color Colour of arrows - overrides arrow_colour. Must be a valid colour name or hex
+#' code. Default NULL.
 #' @importFrom rlang .data
 #' @return A ggplot2 object.
 #' @export
@@ -30,10 +45,23 @@ ggflowchart <- function(data,
                         family = "sans",
                         x_nudge = 0.35,
                         y_nudge = 0.25,
-                        horizontal = FALSE) {
+                        horizontal = FALSE,
+                        color = NULL,
+                        text_color = NULL,
+                        arrow_color = NULL) {
   # define notin
   "%notin%" <- function(x, y) {
     !("%in%" (x, y))
+  }
+  # set colours
+  if (!is.null(color)) {
+    colour = color
+  }
+  if (!is.null(text_color)) {
+    text_colour = color
+  }
+  if (!is.null(arrow_color)) {
+    arrow_colour = color
   }
   # define position of nodes
   node_layout <- get_layout(data = data)
