@@ -79,7 +79,7 @@ node_data <- node_data %>%
 
 and pass this to the `fill` argument:
 
-```{r flowchart-fill-columm}
+```{r flowchart-fill}
 ggflowchart(goldilocks, node_data, fill = type)
 ```
 
