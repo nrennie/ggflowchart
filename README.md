@@ -8,10 +8,14 @@
 
 ## Installation
 
-Install the package using:
+Install the package from CRAN using:
 
 ```r
-# install.packages("remotes")
+install.packages("ggflowchart")
+```
+or install the development version from GitHub:
+
+```r
 remotes::install_github("nrennie/ggflowchart")
 ```
 
