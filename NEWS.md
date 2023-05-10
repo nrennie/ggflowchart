@@ -2,7 +2,9 @@
 
 * Add `horizontal` argument to `ggflowchart()`
 * Add `arrow_size` argument to `ggflowchart()`
+* Add `text_size` argument to `ggflowchart()`
 * Add option to set `fill` based on column in `node_data`
+* Add option to set `text_colour` based on column in `node_data`
 * Update vignette examples
 
 ## ggflowchart 0.0.1 2022_08_06
