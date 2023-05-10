@@ -1,6 +1,9 @@
 ## ggflowchart 0.0.2 2023_05_10
 
-* Add `horizontal` argument 
+* Add `horizontal` argument to `ggflowchart()`
+* Add `arrow_size` argument to `ggflowchart()`
+* Add option to set `fill` based on column in `node_data`
+* Update vignette examples
 
 ## ggflowchart 0.0.1 2022_08_06
 
