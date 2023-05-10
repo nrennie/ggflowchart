@@ -9,11 +9,13 @@
 #' least one column
 #' called "name" for node names to join by. Default NULL.
 #' @param fill Fill colour of nodes. Must be a valid colour name or hex
-#' code. Default "white".
+#' code, or the name of a column in node_data (quoted or unquoted).
+#' Column names take priority over names of colours. Default "white".
 #' @param colour Outline colour of nodes. Must be a valid colour name or hex
 #' code. Default "black".
 #' @param text_colour Colour of labels in nodes. Must be a valid colour name
-#' or hex code. Default "black".
+#' or hex code, or the name of a column in node_data (quoted or unquoted).
+#' Column names take priority over names of colours. Default "black".
 #' @param text_size Font size of labels in nodes. Default 3.88.
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default "black".

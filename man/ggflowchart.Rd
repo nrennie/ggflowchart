@@ -32,13 +32,15 @@ least one column
 called "name" for node names to join by. Default NULL.}
 
 \item{fill}{Fill colour of nodes. Must be a valid colour name or hex
-code. Default "white".}
+code, or the name of a column in node_data (quoted or unquoted).
+Column names take priority over names of colours. Default "white".}
 
 \item{colour}{Outline colour of nodes. Must be a valid colour name or hex
 code. Default "black".}
 
 \item{text_colour}{Colour of labels in nodes. Must be a valid colour name
-or hex code. Default "black".}
+or hex code, or the name of a column in node_data (quoted or unquoted).
+Column names take priority over names of colours. Default "black".}
 
 \item{text_size}{Font size of labels in nodes. Default 3.88.}
 
