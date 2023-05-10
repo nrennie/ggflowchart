@@ -14,31 +14,52 @@ ggflowchart(
   family = "sans",
   x_nudge = 0.35,
   y_nudge = 0.25,
-  horizontal = FALSE
+  horizontal = FALSE,
+  color = NULL,
+  text_color = NULL,
+  arrow_color = NULL
 )
 }
 \arguments{
-\item{data}{Data frame or tibble of edges. Must have two columns, first column are "from" node names,
+\item{data}{Data frame or tibble of edges. Must have two columns, first
+column are "from" node names,
 second column is "to" node names. Node names must be unique.}
 
-\item{node_data}{Data frame or tibble of node information. Must have at least one column
+\item{node_data}{Data frame or tibble of node information. Must have at
+least one column
 called "name" for node names to join by. Default NULL.}
 
-\item{fill}{Fill colour of nodes. Must be a valid colour name or hex code. Default "white".}
+\item{fill}{Fill colour of nodes. Must be a valid colour name or hex
+code. Default "white".}
 
-\item{colour}{Outline colour of nodes. Must be a valid colour name or hex code. Default "black".}
+\item{colour}{Outline colour of nodes. Must be a valid colour name or hex
+code. Default "black".}
 
-\item{text_colour}{Colour of labels in nodes. Must be a valid colour name or hex code. Default "black".}
+\item{text_colour}{Colour of labels in nodes. Must be a valid colour name
+or hex code. Default "black".}
 
-\item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex code. Default "black".}
+\item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex
+code. Default "black".}
 
 \item{family}{Font family for node labels. Default "sans"}
 
-\item{x_nudge}{Distance from centre of edge of node box in x direction. Default 0.35.}
+\item{x_nudge}{Distance from centre of edge of node box in x direction.
+Default 0.35.}
 
-\item{y_nudge}{Distance from centre of edge of node box in y direction. Default 0.25.}
+\item{y_nudge}{Distance from centre of edge of node box in y direction.
+Default 0.25.}
 
-\item{horizontal}{Boolean specifying if flowchart should go from left to right. Default FALSE.}
+\item{horizontal}{Boolean specifying if flowchart should go from left to
+right. Default FALSE.}
+
+\item{color}{Outline colour of nodes - overrides colour. Must be a valid colour name or hex
+code. Default NULL.}
+
+\item{text_color}{Colour of labels in nodes - overrides text_colour. Must be a valid colour name
+or hex code. Default NULL.}
+
+\item{arrow_color}{Colour of arrows - overrides arrow_colour. Must be a valid colour name or hex
+code. Default NULL.}
 }
 \value{
 A ggplot2 object.
