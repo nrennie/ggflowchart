@@ -65,8 +65,8 @@ ggflowchart <- function(data,
   if (!is.null(color)) {
     colour <- color
   }
-  if (!is.null(text_color)) {
-    text_colour <- text_color
+  if (!is.null(rlang::enexpr(text_color))) {
+    text_colour <- rlang::ensym(text_color)
   }
   if (!is.null(arrow_color)) {
     arrow_colour <- arrow_color
