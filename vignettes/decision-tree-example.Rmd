@@ -64,19 +64,44 @@ Create the flowchart using the `ggflowchart()` function.
 ggflowchart(goldilocks, node_data)
 ```
 
+We can also specify a column in `node_data` we want to colour the nodes based on: 
+
+```{r flowchart-fill-columm}
+node_data <- node_data |> 
+  dplyr::mutate(
+    type = c("Character", "Question", "Answer",
+             "Question", "Answer", "Question",
+             "Answer", "Answer", "Answer",
+             "Answer", "Answer", "Answer",
+             "Answer", "Character")
+    )
+```
+
+and pass this to the `fill` argument:
+
+```{r flowchart-fill-columm}
+ggflowchart(goldilocks, node_data, fill = type)
+```
+
+Note that the column name can be passed either quoted or unquoted e.g., `ggflowchart(goldilocks, node_data, fill = "type")` will also work. If single colour is passed instead (in quotes e.g., `"blue"`) and this is also the name of a column, it will assume you want to use the values in the column. If that isn't the case, please rename the column.
+
 Optionally, add some styling using the {ggplot2} `theme()` function and title using the `labs()` function.
 
 ```{r flowchart-style}
 library(ggplot2)
+library(rcartocolor)
 ggflowchart(goldilocks,
   node_data,
+  fill = type,
   colour = "#585c45",
   text_colour = "#585c45",
   arrow_colour = "#585c45"
 ) +
   scale_x_reverse() +
+  scale_fill_carto_d(palette = "Antique") +
   labs(title = "The Goldilocks Decision Tree") +
   theme(
+    legend.position = "none",
     plot.background = element_rect(
       colour = "#f2e4c1",
       fill = "#f2e4c1"
