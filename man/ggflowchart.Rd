@@ -11,6 +11,7 @@ ggflowchart(
   colour = "black",
   text_colour = "black",
   arrow_colour = "black",
+  arrow_size = 0.3,
   family = "sans",
   x_nudge = 0.35,
   y_nudge = 0.25,
@@ -40,6 +41,8 @@ or hex code. Default "black".}
 
 \item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex
 code. Default "black".}
+
+\item{arrow_size}{Size of arrow head. Default 0.3.}
 
 \item{family}{Font family for node labels. Default "sans"}
 

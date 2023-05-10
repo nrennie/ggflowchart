@@ -16,6 +16,7 @@
 #' or hex code. Default "black".
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default "black".
+#' @param arrow_size Size of arrow head. Default 0.3.
 #' @param family Font family for node labels. Default "sans"
 #' @param x_nudge Distance from centre of edge of node box in x direction.
 #' Default 0.35.
@@ -41,6 +42,7 @@ ggflowchart <- function(data,
                         colour = "black",
                         text_colour = "black",
                         arrow_colour = "black",
+                        arrow_size = 0.3,
                         family = "sans",
                         x_nudge = 0.35,
                         y_nudge = 0.25,
@@ -137,13 +139,15 @@ ggflowchart <- function(data,
         group = .data$id
       ),
       arrow = ggplot2::arrow(
-        length = ggplot2::unit(0.3, "cm"),
+        length = ggplot2::unit(arrow_size, "cm"),
         type = "closed"
       ),
       colour = arrow_colour
     ) +
     ggplot2::theme_void() +
-    ggplot2::theme(plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm"))
+    ggplot2::theme(
+      plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm")
+      )
   # check if horizontal
   if (horizontal == TRUE) {
     p <- p +
