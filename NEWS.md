@@ -1,3 +1,7 @@
+## ggflowchart 0.0.2 2023_05_10
+
+* Add `horizontal` argument 
+
 ## ggflowchart 0.0.1 2022_08_06
 
 * Initialise package
