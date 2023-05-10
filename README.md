@@ -37,9 +37,8 @@ See vignettes for further examples of usage.
 
 Note: this package is currently a work-in-progress. Upcoming features that are currently listed as issues being worked on include:
 
-* Changing `fill` and `colour` based on node attributes.
+* Changing node outline `colour` based on node attributes.
 * Changing `linetype` and `colour` of arrows based on edge attributes.
-* Support for `color` as well as `colour`.
 * Same-level arrows (currently an issue with crossing over).
 
 If you have a suggestion of an additional feature, or find a bug, please file an issue on the [GitHub repository](https://github.com/nrennie/ggflowchart/issues).
