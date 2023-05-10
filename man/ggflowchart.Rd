@@ -10,6 +10,7 @@ ggflowchart(
   fill = "white",
   colour = "black",
   text_colour = "black",
+  text_size = 3.88,
   arrow_colour = "black",
   arrow_size = 0.3,
   family = "sans",
@@ -38,6 +39,8 @@ code. Default "black".}
 
 \item{text_colour}{Colour of labels in nodes. Must be a valid colour name
 or hex code. Default "black".}
+
+\item{text_size}{Font size of labels in nodes. Default 3.88.}
 
 \item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex
 code. Default "black".}
