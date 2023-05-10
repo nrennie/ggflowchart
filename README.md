@@ -10,7 +10,7 @@
 
 Install the package using:
 
-```
+```r
 # install.packages("remotes")
 remotes::install_github("nrennie/ggflowchart")
 ```
@@ -19,13 +19,13 @@ remotes::install_github("nrennie/ggflowchart")
 
 The idea of {ggflowchart} is to create simple flowcharts with minimal effort. Currently, all flowcharts are constructed using the `ggflowchart()` function. For the most basic flowchart, it takes as input a data frame containing (at least) two columns for the start and end points of the edges in the flowchart.
 
-```
+```r
 data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"),
                        to = c("B", "C", "D", "E", "F", "G"))
 ```
 The flowchart is then created using `ggflowchart()`.
 
-```
+```r
 ggflowchart(data)
 ```
 
@@ -40,7 +40,6 @@ Note: this package is currently a work-in-progress. Upcoming features that are c
 * Changing `fill` and `colour` based on node attributes.
 * Changing `linetype` and `colour` of arrows based on edge attributes.
 * Support for `color` as well as `colour`.
-* Horizontal flowcharts.
 * Same-level arrows (currently an issue with crossing over).
 
 If you have a suggestion of an additional feature, or find a bug, please file an issue on the [GitHub repository](https://github.com/nrennie/ggflowchart/issues).
