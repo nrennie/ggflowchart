@@ -56,15 +56,16 @@ ggflowchart <- function(data,
   }
   # convert arguments
   fill <- rlang::ensym(fill)
+  text_colour <- rlang::ensym(text_colour)
   # set colours
   if (!is.null(color)) {
     colour <- color
   }
   if (!is.null(text_color)) {
-    text_colour <- color
+    text_colour <- text_color
   }
   if (!is.null(arrow_color)) {
-    arrow_colour <- color
+    arrow_colour <- arrow_color
   }
   # define position of nodes
   node_layout <- get_layout(data = data)
@@ -120,17 +121,33 @@ ggflowchart <- function(data,
       )
   }
   # add text
+  if (as.character(text_colour) %in% colnames(node_data)) {
+    p <- p +
+      ggplot2::geom_text(
+        data = plot_nodes,
+        mapping = ggplot2::aes(
+          x = .data$x,
+          y = .data$y,
+          label = .data$label,
+          colour = !!text_colour
+        ),
+        family = family
+      )
+  } else {
+    p <- p +
+      ggplot2::geom_text(
+        data = plot_nodes,
+        mapping = ggplot2::aes(
+          x = .data$x,
+          y = .data$y,
+          label = .data$label
+        ),
+        family = family,
+        colour = as.character(text_colour)
+      )
+  }
+  # add arrows
   p <- p +
-    ggplot2::geom_text(
-      data = plot_nodes,
-      mapping = ggplot2::aes(
-        x = .data$x,
-        y = .data$y,
-        label = .data$label
-      ),
-      family = family,
-      colour = text_colour
-    ) +
     ggplot2::geom_path(
       data = plot_edges,
       mapping = ggplot2::aes(
