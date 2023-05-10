@@ -14,6 +14,7 @@
 #' code. Default "black".
 #' @param text_colour Colour of labels in nodes. Must be a valid colour name
 #' or hex code. Default "black".
+#' @param text_size Font size of labels in nodes. Default 3.88.
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default "black".
 #' @param arrow_size Size of arrow head. Default 0.3.
@@ -41,6 +42,7 @@ ggflowchart <- function(data,
                         fill = "white",
                         colour = "black",
                         text_colour = "black",
+                        text_size = 3.88,
                         arrow_colour = "black",
                         arrow_size = 0.3,
                         family = "sans",
@@ -87,7 +89,6 @@ ggflowchart <- function(data,
     data = data,
     plot_nodes = plot_nodes
   )
-
   # create the flowchart
   p <- ggplot2::ggplot()
   # add nodes
@@ -131,7 +132,8 @@ ggflowchart <- function(data,
           label = .data$label,
           colour = !!text_colour
         ),
-        family = family
+        family = family,
+        size = text_size
       )
   } else {
     p <- p +
@@ -143,6 +145,7 @@ ggflowchart <- function(data,
           label = .data$label
         ),
         family = family,
+        size = text_size,
         colour = as.character(text_colour)
       )
   }
