@@ -1,10 +1,10 @@
 Package: ggflowchart
 Title: Flowcharts with 'ggplot2'
-Version: 0.0.2
+Version: 1.0.0
 Authors@R: 
     person(given = "Nicola",
            family = "Rennie",
-           role = c("aut", "cre"),
+           role = c("aut", "cre", "cph"),
            email = "nrennie35@gmail.com")
 Description: Flowcharts can be a useful way to visualise complex processes. This package 
     uses the layered grammar of graphics of 'ggplot2' to create simple flowcharts.

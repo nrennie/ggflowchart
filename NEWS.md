@@ -1,3 +1,7 @@
+## ggflowchart 1.0.0 2023_05_10
+
+* Initial CRAN submission
+
 ## ggflowchart 0.0.2 2023_05_10
 
 * Add `horizontal` argument to `ggflowchart()`
