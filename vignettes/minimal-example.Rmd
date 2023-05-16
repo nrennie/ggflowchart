@@ -21,8 +21,10 @@ library(ggflowchart)
 Create a tibble (or data frame) with each row representing an edge.
 
 ```{r data}
-data <- tibble::tibble(from = c("A", "A", "A", "B", "C", "F"),
-                       to = c("B", "C", "D", "E", "F", "G"))
+data <- tibble::tibble(
+  from = c("A", "A", "A", "B", "C", "F"),
+  to = c("B", "C", "D", "E", "F", "G")
+)
 ```
 
 Create the flowchart using the `ggflowchart()` function.
@@ -35,9 +37,21 @@ Change the default styling.
 
 ```{r flowchart-style}
 ggflowchart(data,
-            colour = "red",
-            text_colour = "red",
-            arrow_colour = "red",
-            family = "serif",
-            x_nudge = 0.25)
+  colour = "red",
+  text_colour = "red",
+  arrow_colour = "red",
+  family = "serif",
+  x_nudge = 0.25
+)
+```
+
+Add labels to the arrows.
+
+```{r flowchart-arrow-label}
+data <- tibble::tibble(
+  from = c("A", "A", "A", "B", "C", "F"),
+  to = c("B", "C", "D", "E", "F", "G"),
+  label = c("Yes", "No", NA, "Yes", NA, NA)
+)
+ggflowchart(data)
 ```
