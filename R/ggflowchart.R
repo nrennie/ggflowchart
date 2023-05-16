@@ -91,6 +91,11 @@ ggflowchart <- function(data,
     data = data,
     plot_nodes = plot_nodes
   )
+  # define edge labels
+  edge_labels <- get_edge_labels(
+    data = data,
+    plot_edges = plot_edges
+  )
   # create the flowchart
   p <- ggplot2::ggplot()
   # add nodes
@@ -170,6 +175,21 @@ ggflowchart <- function(data,
     ggplot2::theme(
       plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm")
       )
+  # add arrow edge labels
+  if (!is.null(edge_labels)) {
+    p <- p +
+      ggplot2::geom_label(
+        data = edge_labels,
+        mapping = ggplot2::aes(
+          x = .data$text_x,
+          y = .data$text_y,
+          label = .data$label
+        ),
+        fill = "white",
+        family = family,
+        size = text_size
+      )
+  }
   # check if horizontal
   if (horizontal == TRUE) {
     p <- p +
