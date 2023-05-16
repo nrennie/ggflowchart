@@ -20,6 +20,8 @@
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default "black".
 #' @param arrow_size Size of arrow head. Default 0.3.
+#' @param arrow_linewidth Linewidth of arrow lines. Default 0.5.
+#' @param arrow_linetype Linetype of arrow lines. Default "solid".
 #' @param arrow_label_fill Fill colour of arrow labels. Default "white".
 #' @param family Font family for node labels. Default "sans"
 #' @param x_nudge Distance from centre of edge of node box in x direction.
@@ -48,6 +50,8 @@ ggflowchart <- function(data,
                         text_size = 3.88,
                         arrow_colour = "black",
                         arrow_size = 0.3,
+                        arrow_linewidth = 0.5,
+                        arrow_linetype = "solid",
                         arrow_label_fill = "white",
                         family = "sans",
                         x_nudge = 0.35,
@@ -171,6 +175,8 @@ ggflowchart <- function(data,
         length = ggplot2::unit(arrow_size, "cm"),
         type = "closed"
       ),
+      linewidth = arrow_linewidth,
+      linetype = arrow_linetype,
       colour = arrow_colour
     ) +
     ggplot2::theme_void() +
