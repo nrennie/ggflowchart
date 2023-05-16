@@ -1,6 +1,6 @@
 ## ggflowchart 1.0.0.9000 2023_05_11
 
-* Bump to dev version
+* Add ability to add arrow labels
 
 ## ggflowchart 1.0.0 2023_05_10
 
