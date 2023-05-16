@@ -20,6 +20,7 @@
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default "black".
 #' @param arrow_size Size of arrow head. Default 0.3.
+#' @param arrow_label_fill Fill colour of arrow labels. Default "white".
 #' @param family Font family for node labels. Default "sans"
 #' @param x_nudge Distance from centre of edge of node box in x direction.
 #' Default 0.35.
@@ -47,6 +48,7 @@ ggflowchart <- function(data,
                         text_size = 3.88,
                         arrow_colour = "black",
                         arrow_size = 0.3,
+                        arrow_label_fill = "white",
                         family = "sans",
                         x_nudge = 0.35,
                         y_nudge = 0.25,
@@ -185,7 +187,7 @@ ggflowchart <- function(data,
           y = .data$text_y,
           label = .data$label
         ),
-        fill = "white",
+        fill = arrow_label_fill,
         family = family,
         size = text_size
       )

@@ -13,6 +13,7 @@ ggflowchart(
   text_size = 3.88,
   arrow_colour = "black",
   arrow_size = 0.3,
+  arrow_label_fill = "white",
   family = "sans",
   x_nudge = 0.35,
   y_nudge = 0.25,
@@ -48,6 +49,8 @@ Column names take priority over names of colours. Default "black".}
 code. Default "black".}
 
 \item{arrow_size}{Size of arrow head. Default 0.3.}
+
+\item{arrow_label_fill}{Fill colour of arrow labels. Default "white".}
 
 \item{family}{Font family for node labels. Default "sans"}
 
