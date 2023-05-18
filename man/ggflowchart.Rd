@@ -9,6 +9,7 @@ ggflowchart(
   node_data = NULL,
   fill = "white",
   colour = "black",
+  alpha = 1,
   text_colour = "black",
   text_size = 3.88,
   arrow_colour = "black",
@@ -40,6 +41,8 @@ Column names take priority over names of colours. Default "white".}
 
 \item{colour}{Outline colour of nodes. Must be a valid colour name or hex
 code. Default "black".}
+
+\item{alpha}{Transparency of fill colour in nodes. Default 1.}
 
 \item{text_colour}{Colour of labels in nodes. Must be a valid colour name
 or hex code, or the name of a column in node_data (quoted or unquoted).
