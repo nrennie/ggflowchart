@@ -1,6 +1,8 @@
-## ggflowchart 1.0.0.9000 2023_05_11
+## ggflowchart 1.0.0.9000 2023_05_18
 
-* Add ability to add arrow labels
+* Add ability to add arrow labels (issue #15)
+* Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
+* Add lintr checks to GH Actions
 
 ## ggflowchart 1.0.0 2023_05_10
 
