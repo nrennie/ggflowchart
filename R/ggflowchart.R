@@ -73,6 +73,11 @@ ggflowchart <- function(data,
   }
   # define position of nodes
   node_layout <- get_layout(data = data)
+  #sort each layer by name
+  node_layout <- node_layout %>%
+    arrange(-y,name) %>%
+    group_by(y) %>%
+    mutate(x = sort(x))
   # add edge attributes
   node_layout <- add_node_attr(node_layout, node_data)
   # define edges of node rectangles
