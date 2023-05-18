@@ -13,6 +13,7 @@
 #' Column names take priority over names of colours. Default "white".
 #' @param colour Outline colour of nodes. Must be a valid colour name or hex
 #' code. Default "black".
+#' @param alpha Transparency of fill colour in nodes. Default 1.
 #' @param text_colour Colour of labels in nodes. Must be a valid colour name
 #' or hex code, or the name of a column in node_data (quoted or unquoted).
 #' Column names take priority over names of colours. Default "black".
@@ -46,6 +47,7 @@ ggflowchart <- function(data,
                         node_data = NULL,
                         fill = "white",
                         colour = "black",
+                        alpha = 1,
                         text_colour = "black",
                         text_size = 3.88,
                         arrow_colour = "black",
@@ -116,7 +118,7 @@ ggflowchart <- function(data,
           ymax = .data$ymax,
           fill = !!fill
         ),
-        alpha = 0.5,
+        alpha = alpha,
         colour = colour
       )
   } else {
@@ -129,7 +131,7 @@ ggflowchart <- function(data,
           xmax = .data$xmax,
           ymax = .data$ymax
         ),
-        alpha = 0.5,
+        alpha = alpha,
         colour = colour,
         fill = as.character(fill)
       )
