@@ -77,6 +77,7 @@ ggflowchart <- function(data,
   node_layout <- node_layout |>
     dplyr::arrange(-y,name) |>
     dplyr::group_by(y) |>
+    dplyr::mutate(x = sort(x)) |>
     dplyr::mutate(x = floor(x - mean(x)))
   # add edge attributes
   node_layout <- add_node_attr(node_layout, node_data)
