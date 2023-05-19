@@ -1,11 +1,11 @@
-## ggflowchart 1.0.0.9000 2023_05_18
+## ggflowchart 1.0.0.9000 2023_05_19
 
 * Add ability to add arrow labels (issue #15)
 * Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
 * Add lintr checks to GH Actions
 * Add `alpha` as argument
 * Add contributor guidelines
-* Allow `x_nudge` and `y_nudge` to vary for each node.
+* Allow `x_nudge` and `y_nudge` to vary for each node. (issue #12)
 
 ## ggflowchart 1.0.0 2023_05_10
 
