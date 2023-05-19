@@ -1,3 +1,7 @@
+## ggflowchart 1.0.0.9001 2023_05_20
+
+* Add vignette on how to style nodes
+
 ## ggflowchart 1.0.0.9000 2023_05_19
 
 * Add ability to add arrow labels (issue #15)
