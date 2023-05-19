@@ -97,7 +97,8 @@ ggflowchart <- function(data,
   # define arrows
   plot_edges <- get_edges(
     data = data,
-    plot_nodes = plot_nodes
+    plot_nodes = plot_nodes,
+    node_layout = node_layout
   )
   # define edge labels
   edge_labels <- get_edge_labels(

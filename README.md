@@ -36,7 +36,7 @@ ggflowchart(data)
 
 ![](man/figures/README-minimal.png)
 
-See vignettes for further examples of usage.
+See [vignettes](https://nrennie.github.io/ggflowchart/articles/) for further examples of usage.
 
 ## Upcoming features
 

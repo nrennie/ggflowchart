@@ -1,11 +1,9 @@
-## ggflowchart 1.0.0.9001 2023_05_20
+## ggflowchart 1.0.0.9000+ 2023_05_19
 
+* Same level arrows support (issue #5)
 * Add vignette on how to style nodes
 * Add initial unit testing
 * Add utils function to determine arrow type
-
-## ggflowchart 1.0.0.9000 2023_05_19
-
 * Add ability to add arrow labels (issue #15)
 * Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
 * Add lintr checks to GH Actions
