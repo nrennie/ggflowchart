@@ -34,6 +34,12 @@ The default layout option, `"tree"` uses the tree layout from {igraph}.
 ggflowchart(data, layout = "tree")
 ```
 
+If you'd prefer a horizontal, left-to-right, flowchart simply set `horizontal = TRUE`:
+
+```{r horizontal}
+ggflowchart(data, layout = "tree", horizontal = TRUE)
+```
+
 If you want more control over where the nodes are positioned, you can specify `layout = "custom"`. If you choose this option, you **must** have a column named `x` and a column named `y` in `node_data` (alongside `name`) specifying the coordinates of the centre of each node.
 
 ```{r custom}
