@@ -31,9 +31,9 @@ ggflowchart(
 column are "from" node names,
 second column is "to" node names. Node names must be unique.}
 
-\item{node_data}{Data frame or tibble of node information. Must have at
-least one column
-called "name" for node names to join by. Default NULL.}
+\item{node_data}{Data frame or tibble of node information. If not NULL,
+must have at least one column called "name" for node names to join by.
+Default NULL.}
 
 \item{fill}{Fill colour of nodes. Must be a valid colour name or hex
 code, or the name of a column in node_data (quoted or unquoted).
@@ -64,10 +64,10 @@ code. Default "black".}
 \item{family}{Font family for node labels. Default "sans"}
 
 \item{x_nudge}{Distance from centre of edge of node box in x direction.
-Default 0.35.}
+Ignored if x_nudge is a column in \code{node_data}. Default 0.35.}
 
 \item{y_nudge}{Distance from centre of edge of node box in y direction.
-Default 0.25.}
+Ignored if y_nudge is a column in \code{node_data}. Default 0.25.}
 
 \item{horizontal}{Boolean specifying if flowchart should go from left to
 right. Default FALSE.}

@@ -5,9 +5,9 @@
 #' @param data Data frame or tibble of edges. Must have two columns, first
 #' column are "from" node names,
 #' second column is "to" node names. Node names must be unique.
-#' @param node_data Data frame or tibble of node information. Must have at
-#' least one column
-#' called "name" for node names to join by. Default NULL.
+#' @param node_data Data frame or tibble of node information. If not NULL,
+#' must have at least one column called "name" for node names to join by.
+#' Default NULL.
 #' @param fill Fill colour of nodes. Must be a valid colour name or hex
 #' code, or the name of a column in node_data (quoted or unquoted).
 #' Column names take priority over names of colours. Default "white".
@@ -26,9 +26,9 @@
 #' @param arrow_label_fill Fill colour of arrow labels. Default "white".
 #' @param family Font family for node labels. Default "sans"
 #' @param x_nudge Distance from centre of edge of node box in x direction.
-#' Default 0.35.
+#' Ignored if x_nudge is a column in `node_data`. Default 0.35.
 #' @param y_nudge Distance from centre of edge of node box in y direction.
-#' Default 0.25.
+#'  Ignored if y_nudge is a column in `node_data`. Default 0.25.
 #' @param horizontal Boolean specifying if flowchart should go from left to
 #' right. Default FALSE.
 #' @param color Outline colour of nodes - overrides colour. Must be a valid colour name or hex
