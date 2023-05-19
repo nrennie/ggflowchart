@@ -2,6 +2,7 @@
 
 * Add vignette on how to style nodes
 * Add initial unit testing
+* Add utils function to determine arrow type
 
 ## ggflowchart 1.0.0.9000 2023_05_19
 
