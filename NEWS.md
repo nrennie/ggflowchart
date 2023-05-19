@@ -1,6 +1,7 @@
 ## ggflowchart 1.0.0.9001 2023_05_20
 
 * Add vignette on how to style nodes
+* Add initial unit testing
 
 ## ggflowchart 1.0.0.9000 2023_05_19
 
