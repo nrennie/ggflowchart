@@ -23,9 +23,9 @@ single_arrow_direction <- function(plot_nodes,
   } else if (y_diff == 0 && x_diff < 0) {
     return("rl")
   } else if (y_diff > 0) {
-    return("bt")
+    return("up")
   } else {
-    return("tb")
+    return("down")
   }
 }
 
