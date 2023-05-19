@@ -1,4 +1,9 @@
-## ggflowchart 1.0.0.9001 2023_05_20
+## ggflowchart 1.0.0.9002 2023_05_20
+
+* Fix pkgdown site missing vignette
+* Same level arrows support (issue #5)
+
+## ggflowchart 1.0.0.9001 2023_05_19
 
 * Add vignette on how to style nodes
 * Add initial unit testing
