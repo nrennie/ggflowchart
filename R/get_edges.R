@@ -43,7 +43,7 @@ get_edges <- function(data, plot_nodes, node_layout) {
                              .data$ymax)) %>%
     dplyr::select(-c(.data$ymin,
                      .data$ymax))
-  # Upwards - to do
+  # Upwards
   plot_edge_up <- edge_type_data %>%
     dplyr::filter(.data$arrow_direction == "up") %>%
     dplyr::select(c(.data$from, .data$to)) %>%
@@ -56,8 +56,8 @@ get_edges <- function(data, plot_nodes, node_layout) {
                      .data$xmin,
                      .data$xmax)) %>%
     dplyr::mutate(y = ifelse(.data$s_e == "from",
-                             .data$ymin,
-                             .data$ymax)) %>%
+                             .data$ymax,
+                             .data$ymin)) %>%
     dplyr::select(-c(.data$ymin,
                      .data$ymax))
   # Left to right
