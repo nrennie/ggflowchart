@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ggflowchart</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,10 +88,14 @@
 <span>  node_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  fill <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span>  colour <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  text_colour <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  text_size <span class="op">=</span> <span class="fl">3.88</span>,</span>
 <span>  arrow_colour <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  arrow_size <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>  arrow_linewidth <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  arrow_linetype <span class="op">=</span> <span class="st">"solid"</span>,</span>
+<span>  arrow_label_fill <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span>  family <span class="op">=</span> <span class="st">"sans"</span>,</span>
 <span>  x_nudge <span class="op">=</span> <span class="fl">0.35</span>,</span>
 <span>  y_nudge <span class="op">=</span> <span class="fl">0.25</span>,</span>
@@ -111,9 +115,9 @@ second column is "to" node names. Node names must be unique.</p></dd>
 
 
 <dt>node_data</dt>
-<dd><p>Data frame or tibble of node information. Must have at
-least one column
-called "name" for node names to join by. Default NULL.</p></dd>
+<dd><p>Data frame or tibble of node information. If not NULL,
+must have at least one column called "name" for node names to join by.
+Default NULL.</p></dd>
 
 
 <dt>fill</dt>
@@ -125,6 +129,10 @@ Column names take priority over names of colours. Default "white".</p></dd>
 <dt>colour</dt>
 <dd><p>Outline colour of nodes. Must be a valid colour name or hex
 code. Default "black".</p></dd>
+
+
+<dt>alpha</dt>
+<dd><p>Transparency of fill colour in nodes. Default 1.</p></dd>
 
 
 <dt>text_colour</dt>
@@ -146,18 +154,30 @@ code. Default "black".</p></dd>
 <dd><p>Size of arrow head. Default 0.3.</p></dd>
 
 
+<dt>arrow_linewidth</dt>
+<dd><p>Linewidth of arrow lines. Default 0.5.</p></dd>
+
+
+<dt>arrow_linetype</dt>
+<dd><p>Linetype of arrow lines. Default "solid".</p></dd>
+
+
+<dt>arrow_label_fill</dt>
+<dd><p>Fill colour of arrow labels. Default "white".</p></dd>
+
+
 <dt>family</dt>
 <dd><p>Font family for node labels. Default "sans"</p></dd>
 
 
 <dt>x_nudge</dt>
 <dd><p>Distance from centre of edge of node box in x direction.
-Default 0.35.</p></dd>
+Ignored if x_nudge is a column in <code>node_data</code>. Default 0.35.</p></dd>
 
 
 <dt>y_nudge</dt>
 <dd><p>Distance from centre of edge of node box in y direction.
-Default 0.25.</p></dd>
+Ignored if y_nudge is a column in <code>node_data</code>. Default 0.25.</p></dd>
 
 
 <dt>horizontal</dt>

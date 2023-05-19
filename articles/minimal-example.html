@@ -34,7 +34,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ggflowchart</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,8 +119,10 @@
 <p>Create a tibble (or data frame) with each row representing an
 edge.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"F"</span><span class="op">)</span>,</span>
-<span>                       to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"G"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"F"</span><span class="op">)</span>,</span>
+<span>  to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"G"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Create the flowchart using the <code><a href="../reference/ggflowchart.html">ggflowchart()</a></code>
 function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -129,12 +131,23 @@ function.</p>
 <p>Change the default styling.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggflowchart.html">ggflowchart</a></span><span class="op">(</span><span class="va">data</span>,</span>
-<span>            colour <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span>            text_colour <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span>            arrow_colour <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span>            family <span class="op">=</span> <span class="st">"serif"</span>,</span>
-<span>            x_nudge <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></span></code></pre></div>
+<span>  colour <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  text_colour <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  arrow_colour <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  family <span class="op">=</span> <span class="st">"serif"</span>,</span>
+<span>  x_nudge <span class="op">=</span> <span class="fl">0.25</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="minimal-example_files/figure-html/flowchart-style-1.png" width="700"></p>
+<p>Add labels to the arrows.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"F"</span><span class="op">)</span>,</span>
+<span>  to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"G"</span><span class="op">)</span>,</span>
+<span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="cn">NA</span>, <span class="st">"Yes"</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ggflowchart.html">ggflowchart</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Removed 3 rows containing missing values (`geom_label()`).</span></span></code></pre></div>
+<p><img src="minimal-example_files/figure-html/flowchart-arrow-label-1.png" width="700"></p>
   </main>
 </div>
 

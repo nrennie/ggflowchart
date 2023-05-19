@@ -36,7 +36,7 @@
     
     <a class="navbar-brand me-2" href="index.html">ggflowchart</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,6 +142,26 @@
 <li>Same-level arrows (currently an issue with crossing over).</li>
 </ul>
 <p>If you have a suggestion of an additional feature, or find a bug, please file an issue on the <a href="https://github.com/nrennie/ggflowchart/issues" class="external-link">GitHub repository</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="contributor-guidelines">Contributor guidelines<a class="anchor" aria-label="anchor" href="#contributor-guidelines"></a>
+</h2>
+<p>If you’d like to contribute to {ggflowchart}, I’d welcome your help. If you’re making a PR, please follow the guidelines below, to make the collaboration easier:</p>
+<ul class="task-list">
+<li>
+<input type="checkbox" disabled>You have updated the NEWS and version number in DESCRIPTION.</li>
+<li>
+<input type="checkbox" disabled>You have checked that R CMD check passes with no ERRORs or WARNINGs. If there is a NOTE - please outline what it is in the PR.</li>
+<li>
+<input type="checkbox" disabled>You have checked that <code>lintr::lint_package()</code> passes.</li>
+<li>
+<input type="checkbox" disabled>You have checked the list of packages in Imports is still in alphabetical order to enable better tracking of dependencies as the package grows.</li>
+<li>
+<input type="checkbox" disabled>You have not used the base R <code>|&gt;</code> pipe (we’re not quite ready to specify R 4.1 or higher as a dependency yet!).</li>
+<li>
+<input type="checkbox" disabled>If this is a feature request PR (not a bug fix) please make sure it relates to an issue that has not been assigned to someone else (and tag the issue in the PR description).</li>
+</ul>
+<p>If these checks fail, and there is no response from the PR author for 1 month, the PR will be automatically closed.</p>
 </div>
 </div>
 
