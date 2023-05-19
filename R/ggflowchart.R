@@ -88,9 +88,23 @@ ggflowchart <- function(data,
     arrow_colour <- arrow_color
   }
   # define position of nodes
-  node_layout <- get_layout(data = data)
+  node_layout <- get_layout(
+    data = data,
+    layout = layout,
+    node_data = node_data
+    )
   # add edge attributes
-  node_layout <- add_node_attr(node_layout, node_data)
+  if (layout == "custom") {
+    node_layout <- add_node_attr(
+      node_layout = node_layout,
+      node_data = dplyr::select(node_data, -dplyr::any_of(c("x", "y")))
+    )
+  } else {
+    node_layout <- add_node_attr(
+      node_layout = node_layout,
+      node_data = node_data
+    )
+  }
   # define edges of node rectangles
   plot_nodes <- get_nodes(
     node_layout = node_layout,
