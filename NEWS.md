@@ -4,6 +4,7 @@
 * Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
 * Add lintr checks to GH Actions
 * Add `alpha` as argument
+* Add contributor guidelines
 
 ## ggflowchart 1.0.0 2023_05_10
 
