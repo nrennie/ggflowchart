@@ -1,6 +1,6 @@
 Package: ggflowchart
 Title: Flowcharts with 'ggplot2'
-Version: 1.0.0.9000
+Version: 1.0.0.9001
 Authors@R: 
     person(given = "Nicola",
            family = "Rennie",
@@ -17,15 +17,18 @@ Imports:
   dplyr,
   igraph,
   ggplot2,
+  purrr,
   rlang,
   tibble, 
   tidyr
 Suggests: 
-  knitr,
-  rcartocolor,
-  rmarkdown
+    knitr,
+    rcartocolor,
+    rmarkdown,
+    testthat (>= 3.0.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Config/Needs/website: nrennie/nrenniepkgdown
 URL: https://nrennie.github.io/ggflowchart/
+Config/testthat/edition: 3
