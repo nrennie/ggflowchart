@@ -1,3 +1,3 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("Single column fails", {
+  expect_error(ggflowchart(data = data.frame(from = c(1, 2, 3))))
 })
