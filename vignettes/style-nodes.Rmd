@@ -58,7 +58,7 @@ You can use existing `scale_fill_*` functions to change the colours:
 
 ```{r node-fill-change}
 ggflowchart(data, node_data, fill = type) +
-  ggplot2::scale_fill_brewer(palette ="Dark2")
+  ggplot2::scale_fill_brewer(palette = "Dark2")
 ```
 
 You can do something very similar to change the colour of the text in the nodes:
