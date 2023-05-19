@@ -63,7 +63,6 @@ ggflowchart(data, node_data, fill = type) +
 
 Alternatively, if you want them all to be the same colour you can specify a single colour instead:
 
-
 ```{r node-fill-one}
 ggflowchart(data, node_data, fill = "lightblue")
 ```
