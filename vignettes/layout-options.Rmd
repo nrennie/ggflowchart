@@ -1,0 +1,69 @@
+---
+title: "Layout Options"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{layout-options}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, warning=FALSE}
+library(ggflowchart)
+```
+
+Create a tibble (or data frame) with each row representing an edge.
+
+```{r data}
+data <- tibble::tribble(
+  ~from, ~to,
+  "A", "B",
+  "B", "C"
+)
+```
+
+The default layout option, `"tree"` uses the tree layout from {igraph}.
+
+```{r tree}
+ggflowchart(data, layout = "tree")
+```
+
+If you want more control over where the nodes are positioned, you can specify `layout = "custom"`. If you choose this option, you **must** have a column named `x` and a column named `y` in `node_data` (alongside `name`) specifying the coordinates of the centre of each node.
+
+```{r custom}
+node_data <- tibble::tribble(
+  ~name, ~x, ~y,
+  "A", 1, 3,
+  "B", 2, 2,
+  "C", 3, 1
+)
+ggflowchart(data, node_data = node_data, layout = "custom")
+```
+
+This means you can also create layouts using other functions or packages. For example, you could create a custom layout using `igraph::layout_nicely()` and pass it into `node_data`:
+
+```{r}
+# generate edges
+data <- tibble::tibble(
+  from = LETTERS[1:4],
+  to = LETTERS[2:5]
+  )
+# use a different layout from {igraph}
+g <- igraph::graph_from_data_frame(
+  dplyr::select(data, c(from, to)),
+  directed = TRUE)
+coords <- igraph::layout_nicely(g)
+colnames(coords) <- c("x", "y")
+node_data <- tibble::as_tibble(coords) %>%
+  dplyr::mutate(name = igraph::vertex_attr(g, "name"))
+# create flowchart
+ggflowchart(data, node_data = node_data, layout = "custom")
+```
+
+Some of these alternative layouts (especially ones from {igraph}), may eventually become additional layout options within {ggflowchart}. Note that the placement of the arrows may work better with some layout options than others.
