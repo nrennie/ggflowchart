@@ -61,6 +61,15 @@ ggflowchart(data, node_data, fill = type) +
   ggplot2::scale_fill_brewer(palette = "Dark2")
 ```
 
+Alternatively, if you want them all to be the same colour you can specify a single colour instead:
+
+
+```{r node-fill-one}
+ggflowchart(data, node_data, fill = "lightblue")
+```
+
+Note that quoting column names also works, e.g. `ggflowchart(data, node_data, fill = "type")` gives the same output as `ggflowchart(data, node_data, fill = type)`. This means that if you have a column in `node_data` called `"lightblue"` and you want to colour all of the nodes light blue instead of using the values in the `"lightblue"` column, you would need to rename the column.
+
 You can do something very similar to change the colour of the text in the nodes:
 
 ```{r node-text}
