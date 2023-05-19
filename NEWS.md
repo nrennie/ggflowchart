@@ -5,6 +5,7 @@
 * Add lintr checks to GH Actions
 * Add `alpha` as argument
 * Add contributor guidelines
+* Allow `x_nudge` and `y_nudge` to vary for each node.
 
 ## ggflowchart 1.0.0 2023_05_10
 
