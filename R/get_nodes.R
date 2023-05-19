@@ -17,11 +17,11 @@ get_nodes <- function(node_layout,
                       y_nudge = 0.25) {
   # if x_nudge not specified use global values
   if (!("x_nudge" %in% colnames(node_layout))) {
-    node_layout$x_nudge = x_nudge
+    node_layout$x_nudge <- x_nudge
   }
   # if y_nudge not specified use global values
   if (!("y_nudge" %in% colnames(node_layout))) {
-    node_layout$y_nudge = y_nudge
+    node_layout$y_nudge <- y_nudge
   }
   # define corners
   plot_nodes <- node_layout %>%
