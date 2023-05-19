@@ -34,7 +34,10 @@ get_edges <- function(data, plot_nodes, node_layout) {
     tidyr::pivot_longer(cols = c("from", "to"),
                         names_to = "s_e",
                         values_to = "name") %>%
-    dplyr::left_join(dplyr::select(plot_nodes, -c(x_nudge, y_nudge)), by = "name") %>%
+    dplyr::left_join(
+      dplyr::select(plot_nodes, -c(.data$x_nudge, .data$y_nudge)),
+      by = "name"
+      ) %>%
     dplyr::select(-c(.data$y,
                      .data$xmin,
                      .data$xmax)) %>%
@@ -51,7 +54,10 @@ get_edges <- function(data, plot_nodes, node_layout) {
     tidyr::pivot_longer(cols = c("from", "to"),
                         names_to = "s_e",
                         values_to = "name") %>%
-    dplyr::left_join(dplyr::select(plot_nodes, -c(x_nudge, y_nudge)), by = "name") %>%
+    dplyr::left_join(
+      dplyr::select(plot_nodes, -c(.data$x_nudge, .data$y_nudge)),
+      by = "name"
+      ) %>%
     dplyr::select(-c(.data$y,
                      .data$xmin,
                      .data$xmax)) %>%
@@ -69,7 +75,9 @@ get_edges <- function(data, plot_nodes, node_layout) {
                         names_to = "s_e",
                         values_to = "name") %>%
     dplyr::left_join(
-      dplyr::select(plot_nodes, -c(x_nudge, y_nudge)),
+      dplyr::select(
+        plot_nodes, -c(.data$x_nudge, .data$y_nudge)
+        ),
       by = "name"
     ) %>%
     dplyr::select(-c(.data$x,
@@ -89,7 +97,7 @@ get_edges <- function(data, plot_nodes, node_layout) {
                         names_to = "s_e",
                         values_to = "name") %>%
     dplyr::left_join(
-      dplyr::select(plot_nodes, -c(x_nudge, y_nudge)),
+      dplyr::select(plot_nodes, -c(.data$x_nudge, .data$y_nudge)),
       by = "name"
     ) %>%
     dplyr::select(-c(.data$x,
