@@ -2,7 +2,7 @@
 title: "Styling Flowchart Nodes"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{minimal-example}
+  %\VignetteIndexEntry{style-nodes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
