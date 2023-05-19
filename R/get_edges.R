@@ -80,7 +80,7 @@ get_edges <- function(data, plot_nodes, node_layout) {
                              .data$xmin)) %>%
     dplyr::select(-c(.data$xmin,
                      .data$xmax))
-  # right to left - to do
+  # right to left
   plot_edge_rl <- edge_type_data %>%
     dplyr::filter(.data$arrow_direction == "rl") %>%
     dplyr::select(c(.data$from, .data$to)) %>%
@@ -88,15 +88,18 @@ get_edges <- function(data, plot_nodes, node_layout) {
     tidyr::pivot_longer(cols = c("from", "to"),
                         names_to = "s_e",
                         values_to = "name") %>%
-    dplyr::left_join(dplyr::select(plot_nodes, -c(x_nudge, y_nudge)), by = "name") %>%
-    dplyr::select(-c(.data$y,
-                     .data$xmin,
-                     .data$xmax)) %>%
-    dplyr::mutate(y = ifelse(.data$s_e == "from",
-                             .data$ymin,
-                             .data$ymax)) %>%
-    dplyr::select(-c(.data$ymin,
-                     .data$ymax))
+    dplyr::left_join(
+      dplyr::select(plot_nodes, -c(x_nudge, y_nudge)),
+      by = "name"
+    ) %>%
+    dplyr::select(-c(.data$x,
+                     .data$ymin,
+                     .data$ymax)) %>%
+    dplyr::mutate(x = ifelse(.data$s_e == "from",
+                             .data$xmin,
+                             .data$xmax)) %>%
+    dplyr::select(-c(.data$xmin,
+                     .data$xmax))
   # join data set together
   plot_edges <- rbind(
     plot_edge_up, plot_edge_down, plot_edge_rl, plot_edge_lr
