@@ -17,6 +17,7 @@ Imports:
   dplyr,
   igraph,
   ggplot2,
+  purrr,
   rlang,
   tibble, 
   tidyr
