@@ -3,40 +3,43 @@
 #' Generates the flowchart
 #'
 #' @param data Data frame or tibble of edges. Must have two columns, first
-#' column are "from" node names,
-#' second column is "to" node names. Node names must be unique.
-#' @param node_data Data frame or tibble of node information. If not NULL,
+#' column are `"from"` node names, second column is `"to"` node names. Node names must be unique.
+#' @param node_data Data frame or tibble of node information. If not `NULL`,
 #' must have at least one column called "name" for node names to join by.
-#' Default NULL.
+#' Default `NULL`.
+#' @param layout One of `c("tree", "custom")`. If `"tree"` uses the tree layout
+#' from {igraph}. If `"custom"`, then `x` and `y` columns must be provided in
+#' `node_data` specifying the coordinates of the centre of the boxes. Default
+#' `"tree"`.
 #' @param fill Fill colour of nodes. Must be a valid colour name or hex
 #' code, or the name of a column in node_data (quoted or unquoted).
-#' Column names take priority over names of colours. Default "white".
+#' Column names take priority over names of colours. Default `"white"`.
 #' @param colour Outline colour of nodes. Must be a valid colour name or hex
-#' code. Default "black".
+#' code. Default `"black"`.
 #' @param alpha Transparency of fill colour in nodes. Default 1.
 #' @param text_colour Colour of labels in nodes. Must be a valid colour name
 #' or hex code, or the name of a column in node_data (quoted or unquoted).
-#' Column names take priority over names of colours. Default "black".
+#' Column names take priority over names of colours. Default `"black"`.
 #' @param text_size Font size of labels in nodes. Default 3.88.
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
-#' code. Default "black".
+#' code. Default `"black"`.
 #' @param arrow_size Size of arrow head. Default 0.3.
 #' @param arrow_linewidth Linewidth of arrow lines. Default 0.5.
-#' @param arrow_linetype Linetype of arrow lines. Default "solid".
-#' @param arrow_label_fill Fill colour of arrow labels. Default "white".
-#' @param family Font family for node labels. Default "sans"
+#' @param arrow_linetype Linetype of arrow lines. Default `"solid"`.
+#' @param arrow_label_fill Fill colour of arrow labels. Default `"white"`.
+#' @param family Font family for node labels. Default `"sans"`.
 #' @param x_nudge Distance from centre of edge of node box in x direction.
-#' Ignored if x_nudge is a column in `node_data`. Default 0.35.
+#' Ignored if `x_nudge` is a column in `node_data`. Default 0.35.
 #' @param y_nudge Distance from centre of edge of node box in y direction.
-#'  Ignored if y_nudge is a column in `node_data`. Default 0.25.
+#'  Ignored if `y_nudge` is a column in `node_data`. Default 0.25.
 #' @param horizontal Boolean specifying if flowchart should go from left to
-#' right. Default FALSE.
+#' right. Default `FALSE`.
 #' @param color Outline colour of nodes - overrides colour. Must be a valid colour name or hex
-#' code. Default NULL.
+#' code. Default `NULL`.
 #' @param text_color Colour of labels in nodes - overrides text_colour. Must be a valid colour name
-#' or hex code. Default NULL.
+#' or hex code. Default `NULL`.
 #' @param arrow_color Colour of arrows - overrides arrow_colour. Must be a valid colour name or hex
-#' code. Default NULL.
+#' code. Default `NULL`.
 #' @importFrom rlang .data
 #' @return A ggplot2 object.
 #' @export
@@ -45,6 +48,7 @@
 #' ggflowchart(data)
 ggflowchart <- function(data,
                         node_data = NULL,
+                        layout = "tree",
                         fill = "white",
                         colour = "black",
                         alpha = 1,
@@ -66,6 +70,10 @@ ggflowchart <- function(data,
   "%notin%" <- function(x, y) {
     !("%in%"(x, y))
   }
+  # check layout valid
+  if (layout %notin% c("tree", "custom")) {
+    stop('Layout must be one of c("tree", "custom").')
+  }
   # convert arguments
   fill <- rlang::ensym(fill)
   text_colour <- rlang::ensym(text_colour)
@@ -80,9 +88,23 @@ ggflowchart <- function(data,
     arrow_colour <- arrow_color
   }
   # define position of nodes
-  node_layout <- get_layout(data = data)
+  node_layout <- get_layout(
+    data = data,
+    layout = layout,
+    node_data = node_data
+    )
   # add edge attributes
-  node_layout <- add_node_attr(node_layout, node_data)
+  if (layout == "custom") {
+    node_layout <- add_node_attr(
+      node_layout = node_layout,
+      node_data = dplyr::select(node_data, -dplyr::any_of(c("x", "y")))
+    )
+  } else {
+    node_layout <- add_node_attr(
+      node_layout = node_layout,
+      node_data = node_data
+    )
+  }
   # define edges of node rectangles
   plot_nodes <- get_nodes(
     node_layout = node_layout,

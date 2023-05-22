@@ -7,6 +7,7 @@
 ggflowchart(
   data,
   node_data = NULL,
+  layout = "tree",
   fill = "white",
   colour = "black",
   alpha = 1,
@@ -28,58 +29,62 @@ ggflowchart(
 }
 \arguments{
 \item{data}{Data frame or tibble of edges. Must have two columns, first
-column are "from" node names,
-second column is "to" node names. Node names must be unique.}
+column are \code{"from"} node names, second column is \code{"to"} node names. Node names must be unique.}
 
-\item{node_data}{Data frame or tibble of node information. If not NULL,
+\item{node_data}{Data frame or tibble of node information. If not \code{NULL},
 must have at least one column called "name" for node names to join by.
-Default NULL.}
+Default \code{NULL}.}
+
+\item{layout}{One of \code{c("tree", "custom")}. If \code{"tree"} uses the tree layout
+from {igraph}. If \code{"custom"}, then \code{x} and \code{y} columns must be provided in
+\code{node_data} specifying the coordinates of the centre of the boxes. Default
+\code{"tree"}.}
 
 \item{fill}{Fill colour of nodes. Must be a valid colour name or hex
 code, or the name of a column in node_data (quoted or unquoted).
-Column names take priority over names of colours. Default "white".}
+Column names take priority over names of colours. Default \code{"white"}.}
 
 \item{colour}{Outline colour of nodes. Must be a valid colour name or hex
-code. Default "black".}
+code. Default \code{"black"}.}
 
 \item{alpha}{Transparency of fill colour in nodes. Default 1.}
 
 \item{text_colour}{Colour of labels in nodes. Must be a valid colour name
 or hex code, or the name of a column in node_data (quoted or unquoted).
-Column names take priority over names of colours. Default "black".}
+Column names take priority over names of colours. Default \code{"black"}.}
 
 \item{text_size}{Font size of labels in nodes. Default 3.88.}
 
 \item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex
-code. Default "black".}
+code. Default \code{"black"}.}
 
 \item{arrow_size}{Size of arrow head. Default 0.3.}
 
 \item{arrow_linewidth}{Linewidth of arrow lines. Default 0.5.}
 
-\item{arrow_linetype}{Linetype of arrow lines. Default "solid".}
+\item{arrow_linetype}{Linetype of arrow lines. Default \code{"solid"}.}
 
-\item{arrow_label_fill}{Fill colour of arrow labels. Default "white".}
+\item{arrow_label_fill}{Fill colour of arrow labels. Default \code{"white"}.}
 
-\item{family}{Font family for node labels. Default "sans"}
+\item{family}{Font family for node labels. Default \code{"sans"}.}
 
 \item{x_nudge}{Distance from centre of edge of node box in x direction.
-Ignored if x_nudge is a column in \code{node_data}. Default 0.35.}
+Ignored if \code{x_nudge} is a column in \code{node_data}. Default 0.35.}
 
 \item{y_nudge}{Distance from centre of edge of node box in y direction.
-Ignored if y_nudge is a column in \code{node_data}. Default 0.25.}
+Ignored if \code{y_nudge} is a column in \code{node_data}. Default 0.25.}
 
 \item{horizontal}{Boolean specifying if flowchart should go from left to
-right. Default FALSE.}
+right. Default \code{FALSE}.}
 
 \item{color}{Outline colour of nodes - overrides colour. Must be a valid colour name or hex
-code. Default NULL.}
+code. Default \code{NULL}.}
 
 \item{text_color}{Colour of labels in nodes - overrides text_colour. Must be a valid colour name
-or hex code. Default NULL.}
+or hex code. Default \code{NULL}.}
 
 \item{arrow_color}{Colour of arrows - overrides arrow_colour. Must be a valid colour name or hex
-code. Default NULL.}
+code. Default \code{NULL}.}
 }
 \value{
 A ggplot2 object.
