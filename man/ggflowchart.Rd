@@ -13,6 +13,7 @@ ggflowchart(
   alpha = 1,
   text_colour = "black",
   text_size = 3.88,
+  parse = FALSE,
   arrow_colour = "black",
   arrow_size = 0.3,
   arrow_linewidth = 0.5,
@@ -54,6 +55,9 @@ or hex code, or the name of a column in node_data (quoted or unquoted).
 Column names take priority over names of colours. Default \code{"black"}.}
 
 \item{text_size}{Font size of labels in nodes. Default 3.88.}
+
+\item{parse}{If TRUE, the labels will be parsed into expressions
+and displayed as described in ?plotmath. Default \code{FALSE}.}
 
 \item{arrow_colour}{Colour of arrows. Must be a valid colour name or hex
 code. Default \code{"black"}.}

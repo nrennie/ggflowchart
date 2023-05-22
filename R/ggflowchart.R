@@ -21,6 +21,8 @@
 #' or hex code, or the name of a column in node_data (quoted or unquoted).
 #' Column names take priority over names of colours. Default `"black"`.
 #' @param text_size Font size of labels in nodes. Default 3.88.
+#' @param parse If TRUE, the labels will be parsed into expressions
+#' and displayed as described in ?plotmath. Default `FALSE`.
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
 #' code. Default `"black"`.
 #' @param arrow_size Size of arrow head. Default 0.3.
@@ -54,6 +56,7 @@ ggflowchart <- function(data,
                         alpha = 1,
                         text_colour = "black",
                         text_size = 3.88,
+                        parse = FALSE,
                         arrow_colour = "black",
                         arrow_size = 0.3,
                         arrow_linewidth = 0.5,
@@ -171,7 +174,8 @@ ggflowchart <- function(data,
           colour = !!text_colour
         ),
         family = family,
-        size = text_size
+        size = text_size,
+        parse = parse
       )
   } else {
     p <- p +
@@ -184,6 +188,7 @@ ggflowchart <- function(data,
         ),
         family = family,
         size = text_size,
+        parse = parse,
         colour = as.character(text_colour)
       )
   }
