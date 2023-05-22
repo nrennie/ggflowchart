@@ -11,6 +11,7 @@
 * Add contributor guidelines
 * Allow `x_nudge` and `y_nudge` to vary for each node. (issue #12)
 * Add option for custom layout (issue #11)
+* Add option to parse text in nodes.
 
 ## ggflowchart 1.0.0 2023_05_10
 
