@@ -69,12 +69,14 @@ We can also specify a column in `node_data` we want to colour the nodes based on
 ```{r flowchart-fill-columm}
 node_data <- node_data %>%
   dplyr::mutate(
-    type = c("Character", "Question", "Answer",
-             "Question", "Answer", "Question",
-             "Answer", "Answer", "Answer",
-             "Answer", "Answer", "Answer",
-             "Answer", "Character")
+    type = c(
+      "Character", "Question", "Answer",
+      "Question", "Answer", "Question",
+      "Answer", "Answer", "Answer",
+      "Answer", "Answer", "Answer",
+      "Answer", "Character"
     )
+  )
 ```
 
 and pass this to the `fill` argument:
@@ -87,19 +89,39 @@ Note that the column name can be passed either quoted or unquoted e.g., `ggflowc
 
 Optionally, add some styling using the {ggplot2} `theme()` function and title using the `labs()` function.
 
-```{r flowchart-style}
+```{r flowchart-style, warning=FALSE, message=FALSE}
+# add additional packages
 library(ggplot2)
 library(rcartocolor)
-ggflowchart(goldilocks,
+library(showtext)
+
+# load font
+font_add_google(name = "Henny Penny", family = "henny")
+showtext_auto()
+
+# make flowchart
+fchart <- ggflowchart(goldilocks,
   node_data,
   fill = type,
+  family = "henny",
   colour = "#585c45",
   text_colour = "#585c45",
-  arrow_colour = "#585c45"
-) +
+  arrow_colour = "#585c45",
+  arrow_size = 0.15,
+  text_size = 2.5,
+  alpha = 0.4,
+  x_nudge = 0.45,
+  y_nudge = 0.35
+)
+
+# customise theme
+fchart +
   scale_x_reverse() +
   scale_fill_carto_d(palette = "Antique") +
-  labs(title = "The Goldilocks Decision Tree") +
+  labs(
+    title = "The Goldilocks Decision Tree",
+    caption = "Data: Robert Southey. Goldilocks and the Three Bears. 1837."
+  ) +
   theme(
     legend.position = "none",
     plot.background = element_rect(
@@ -107,10 +129,20 @@ ggflowchart(goldilocks,
       fill = "#f2e4c1"
     ),
     plot.title = element_text(
-      size = 20,
-      hjust = 0.5,
+      size = 14,
+      hjust = 0,
       face = "bold",
+      family = "henny",
       colour = "#585c45"
-    )
+    ),
+    plot.caption = element_text(
+      size = 8,
+      hjust = 0,
+      lineheight = 0.5,
+      face = "bold",
+      family = "henny",
+      colour = "#585c45"
+    ),
+    plot.margin = margin(5, 5, 5, 5)
   )
 ```
