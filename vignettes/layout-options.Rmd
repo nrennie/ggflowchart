@@ -54,21 +54,26 @@ ggflowchart(data, node_data = node_data, layout = "custom")
 
 This means you can also create layouts using other functions or packages. For example, you could create a custom layout using `igraph::layout_nicely()` and pass it into `node_data`:
 
-```{r igraph}
+```{r igraph, warning=FALSE, message=FALSE}
 library(dplyr)
+
 # generate edges
-data <- tibble::tibble(
-  from = LETTERS[1:4],
-  to = LETTERS[2:5]
+data <- tibble::tribble(
+    ~from, ~to,
+  "A", "B",
+  "A", "C",
+  "A", "D"
   )
+
 # use a different layout from {igraph}
 g <- igraph::graph_from_data_frame(
   select(data, c(from, to)),
   directed = TRUE)
-coords <- igraph::layout_nicely(g)
+coords <- igraph::layout_as_star(g)
 colnames(coords) <- c("x", "y")
 node_data <- tibble::as_tibble(coords) %>%
   mutate(name = igraph::vertex_attr(g, "name"))
+
 # create flowchart
 ggflowchart(data, node_data = node_data, layout = "custom")
 ```
