@@ -34,7 +34,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ggflowchart</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9004</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -166,12 +166,14 @@ colour the nodes based on:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">node_data</span> <span class="op">&lt;-</span> <span class="va">node_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Character"</span>, <span class="st">"Question"</span>, <span class="st">"Answer"</span>,</span>
-<span>             <span class="st">"Question"</span>, <span class="st">"Answer"</span>, <span class="st">"Question"</span>,</span>
-<span>             <span class="st">"Answer"</span>, <span class="st">"Answer"</span>, <span class="st">"Answer"</span>,</span>
-<span>             <span class="st">"Answer"</span>, <span class="st">"Answer"</span>, <span class="st">"Answer"</span>,</span>
-<span>             <span class="st">"Answer"</span>, <span class="st">"Character"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span></code></pre></div>
+<span>    type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"Character"</span>, <span class="st">"Question"</span>, <span class="st">"Answer"</span>,</span>
+<span>      <span class="st">"Question"</span>, <span class="st">"Answer"</span>, <span class="st">"Question"</span>,</span>
+<span>      <span class="st">"Answer"</span>, <span class="st">"Answer"</span>, <span class="st">"Answer"</span>,</span>
+<span>      <span class="st">"Answer"</span>, <span class="st">"Answer"</span>, <span class="st">"Answer"</span>,</span>
+<span>      <span class="st">"Answer"</span>, <span class="st">"Character"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p>and pass this to the <code>fill</code> argument:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggflowchart.html">ggflowchart</a></span><span class="op">(</span><span class="va">goldilocks</span>, <span class="va">node_data</span>, fill <span class="op">=</span> <span class="va">type</span><span class="op">)</span></span></code></pre></div>
@@ -185,18 +187,33 @@ please rename the column.</p>
 <p>Optionally, add some styling using the {ggplot2} <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme()</a></code>
 function and title using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs()</a></code> function.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># add additional packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Nowosad/rcartocolor" class="external-link">rcartocolor</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ggflowchart.html">ggflowchart</a></span><span class="op">(</span><span class="va">goldilocks</span>,</span>
+<span></span>
+<span><span class="co"># make flowchart</span></span>
+<span><span class="va">fchart</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ggflowchart.html">ggflowchart</a></span><span class="op">(</span><span class="va">goldilocks</span>,</span>
 <span>  <span class="va">node_data</span>,</span>
 <span>  fill <span class="op">=</span> <span class="va">type</span>,</span>
+<span>  family <span class="op">=</span> <span class="st">"serif"</span>,</span>
 <span>  colour <span class="op">=</span> <span class="st">"#585c45"</span>,</span>
 <span>  text_colour <span class="op">=</span> <span class="st">"#585c45"</span>,</span>
-<span>  arrow_colour <span class="op">=</span> <span class="st">"#585c45"</span></span>
-<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  arrow_colour <span class="op">=</span> <span class="st">"#585c45"</span>,</span>
+<span>  arrow_size <span class="op">=</span> <span class="fl">0.15</span>,</span>
+<span>  text_size <span class="op">=</span> <span class="fl">2.5</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span>  x_nudge <span class="op">=</span> <span class="fl">0.45</span>,</span>
+<span>  y_nudge <span class="op">=</span> <span class="fl">0.35</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># customise theme</span></span>
+<span><span class="va">fchart</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_reverse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/rcartocolor/man/carto_scale.html" class="external-link">scale_fill_carto_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Antique"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"The Goldilocks Decision Tree"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"The Goldilocks Decision Tree"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Data: Robert Southey. Goldilocks and the Three Bears. 1837."</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
 <span>    legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
 <span>    plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span></span>
@@ -204,11 +221,21 @@ function and title using the <code><a href="https://ggplot2.tidyverse.org/refere
 <span>      fill <span class="op">=</span> <span class="st">"#f2e4c1"</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>      size <span class="op">=</span> <span class="fl">20</span>,</span>
-<span>      hjust <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>      size <span class="op">=</span> <span class="fl">14</span>,</span>
+<span>      hjust <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>      face <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>      family <span class="op">=</span> <span class="st">"serif"</span>,</span>
 <span>      colour <span class="op">=</span> <span class="st">"#585c45"</span></span>
-<span>    <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
+<span>      size <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>      hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>      lineheight <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>      face <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>      family <span class="op">=</span> <span class="st">"serif"</span>,</span>
+<span>      colour <span class="op">=</span> <span class="st">"#585c45"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    plot.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="decision-tree-example_files/figure-html/flowchart-style-1.png" width="700"></p>
 </div>
