@@ -44,7 +44,6 @@ Note: this package is currently a work-in-progress. Upcoming features that are c
 
 * Changing node outline `colour` based on node attributes.
 * Changing `linetype` and `colour` of arrows based on edge attributes.
-* Same-level arrows (currently an issue with crossing over).
 
 If you have a suggestion of an additional feature, or find a bug, please file an issue on the [GitHub repository](https://github.com/nrennie/ggflowchart/issues).
 
@@ -52,12 +51,12 @@ If you have a suggestion of an additional feature, or find a bug, please file an
 
 If you'd like to contribute to {ggflowchart}, I'd welcome your help. If you're making a PR, please follow the guidelines below, to make the collaboration easier:
 
-- [ ] You have updated the NEWS and version number in DESCRIPTION.
-- [ ] You have checked that R CMD check passes with no ERRORs or WARNINGs. If there is a NOTE - please outline what it is in the PR.
-- [ ] You have checked that `lintr::lint_package()` passes.
-- [ ] You have checked the list of packages in Imports is still in alphabetical order to enable better tracking of dependencies as the package grows.
-- [ ] You have not used the base R `|>` pipe (we're not quite ready to specify R 4.1 or higher as a dependency yet!).
-- [ ] If this is a feature request PR (not a bug fix) please make sure it relates to an issue that has not been assigned to someone else (and tag the issue in the PR description).
+- You have updated the NEWS and version number in DESCRIPTION.
+- You have checked that R CMD check passes with no ERRORs or WARNINGs. If there is a NOTE - please outline what it is in the PR.
+- You have checked that `lintr::lint_package()` passes.
+- You have checked the list of packages in Imports is still in alphabetical order to enable better tracking of dependencies as the package grows.
+- You have not used the base R `|>` pipe (we're not quite ready to specify R 4.1 or higher as a dependency yet!).
+- If this is a feature request PR (not a bug fix) please make sure it relates to an issue that has not been assigned to someone else (and tag the issue in the PR description).
 
 If these checks fail, and there is no response from the PR author for 1 month, the PR will be automatically closed.
 
