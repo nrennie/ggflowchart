@@ -93,17 +93,12 @@ Optionally, add some styling using the {ggplot2} `theme()` function and title us
 # add additional packages
 library(ggplot2)
 library(rcartocolor)
-library(showtext)
-
-# load font
-font_add_google(name = "Henny Penny", family = "henny")
-showtext_auto()
 
 # make flowchart
 fchart <- ggflowchart(goldilocks,
   node_data,
   fill = type,
-  family = "henny",
+  family = "serif",
   colour = "#585c45",
   text_colour = "#585c45",
   arrow_colour = "#585c45",
@@ -132,7 +127,7 @@ fchart +
       size = 14,
       hjust = 0,
       face = "bold",
-      family = "henny",
+      family = "serif",
       colour = "#585c45"
     ),
     plot.caption = element_text(
@@ -140,7 +135,7 @@ fchart +
       hjust = 0,
       lineheight = 0.5,
       face = "bold",
-      family = "henny",
+      family = "serif",
       colour = "#585c45"
     ),
     plot.margin = margin(5, 5, 5, 5)
