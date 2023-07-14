@@ -14,6 +14,7 @@
 * Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
 * Add `linewidth` as argument (issue #14)
 * Add ability to add arrow labels (issue #15)
+* Add codecov GitHub action (#24)
 * More informative error handling (issue #29)
 * Set minimum version of {ggplot2} (issue #31)
 
