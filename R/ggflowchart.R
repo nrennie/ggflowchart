@@ -81,7 +81,7 @@ ggflowchart <- function(data,
   }
   # check data has non-zero rows
   if (nrow(data) < 1) {
-    stop('data must have at least one row.')
+    stop("data must have at least one row.")
   }
   # convert arguments
   fill <- rlang::ensym(fill)
