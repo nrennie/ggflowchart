@@ -16,7 +16,7 @@ Depends:
 Imports:
   dplyr,
   igraph,
-  ggplot2,
+  ggplot2 (>= 3.4.0),
   purrr,
   rlang,
   tibble, 
