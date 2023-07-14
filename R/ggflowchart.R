@@ -79,6 +79,10 @@ ggflowchart <- function(data,
   if (layout %notin% c("tree", "custom")) {
     stop('Layout must be one of c("tree", "custom").')
   }
+  # check data has non-zero rows
+  if (nrow(data) < 1) {
+    stop('data must have at least one row.')
+  }
   # convert arguments
   fill <- rlang::ensym(fill)
   text_colour <- rlang::ensym(text_colour)
