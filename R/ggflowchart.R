@@ -16,11 +16,13 @@
 #' Column names take priority over names of colours. Default `"white"`.
 #' @param colour Outline colour of nodes. Must be a valid colour name or hex
 #' code. Default `"black"`.
+#' @param linewidth Width of node outlines. Default 0.5.
 #' @param alpha Transparency of fill colour in nodes. Default 1.
 #' @param text_colour Colour of labels in nodes. Must be a valid colour name
 #' or hex code, or the name of a column in node_data (quoted or unquoted).
 #' Column names take priority over names of colours. Default `"black"`.
 #' @param text_size Font size of labels in nodes. Default 3.88.
+#' @param family Font family for node labels. Default `"sans"`.
 #' @param parse If TRUE, the labels will be parsed into expressions
 #' and displayed as described in ?plotmath. Default `FALSE`.
 #' @param arrow_colour Colour of arrows. Must be a valid colour name or hex
@@ -29,7 +31,6 @@
 #' @param arrow_linewidth Linewidth of arrow lines. Default 0.5.
 #' @param arrow_linetype Linetype of arrow lines. Default `"solid"`.
 #' @param arrow_label_fill Fill colour of arrow labels. Default `"white"`.
-#' @param family Font family for node labels. Default `"sans"`.
 #' @param x_nudge Distance from centre of edge of node box in x direction.
 #' Ignored if `x_nudge` is a column in `node_data`. Default 0.35.
 #' @param y_nudge Distance from centre of edge of node box in y direction.
@@ -53,16 +54,17 @@ ggflowchart <- function(data,
                         layout = "tree",
                         fill = "white",
                         colour = "black",
+                        linewidth = 0.5,
                         alpha = 1,
                         text_colour = "black",
                         text_size = 3.88,
+                        family = "sans",
                         parse = FALSE,
                         arrow_colour = "black",
                         arrow_size = 0.3,
                         arrow_linewidth = 0.5,
                         arrow_linetype = "solid",
                         arrow_label_fill = "white",
-                        family = "sans",
                         x_nudge = 0.35,
                         y_nudge = 0.25,
                         horizontal = FALSE,
@@ -145,7 +147,8 @@ ggflowchart <- function(data,
           fill = !!fill
         ),
         alpha = alpha,
-        colour = colour
+        colour = colour,
+        linewidth = linewidth
       )
   } else {
     p <- p +
@@ -159,7 +162,8 @@ ggflowchart <- function(data,
         ),
         alpha = alpha,
         colour = colour,
-        fill = as.character(fill)
+        fill = as.character(fill),
+        linewidth = linewidth
       )
   }
   # add text
