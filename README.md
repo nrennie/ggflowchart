@@ -1,7 +1,8 @@
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml)
+  [![codecov](https://codecov.io/gh/nrennie/ggflowchart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/nrennie/ggflowchart?branch=main)
   [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggflowchart)](https://cran.r-project.org/package=ggflowchart)
-  <!-- badges: end -->
+<!-- badges: end -->
 
 # {ggflowchart} <img src="man/figures/logo.png" align="right" width="120" />
 
