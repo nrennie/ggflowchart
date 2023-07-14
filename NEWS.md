@@ -1,17 +1,21 @@
-## ggflowchart 1.0.0.9000+ 2023_05_19
+## ggflowchart 1.0.0.9000+ 2023_07_14
 
-* Same level arrows support (issue #5)
 * Add vignette on how to style nodes
 * Add initial unit testing
 * Add utils function to determine arrow type
-* Add ability to add arrow labels (issue #15)
-* Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
 * Add lintr checks to GH Actions
-* Add `alpha` as argument
 * Add contributor guidelines
-* Allow `x_nudge` and `y_nudge` to vary for each node. (issue #12)
-* Add option for custom layout (issue #11)
 * Add option to parse text in nodes.
+* Update README
+* Add `alpha` as argument
+* Same level arrows support (issue #5)
+* Add option for custom layout (issue #11)
+* Allow `x_nudge` and `y_nudge` to vary for each node. (issue #12)
+* Add `arrow_linewidth` and `arrow_linewidth` as arguments (issue #14)
+* Add `linewidth` as argument (issue #14)
+* Add ability to add arrow labels (issue #15)
+* More informative error handling (issue #29)
+* Set minimum version of {ggplot2} (issue #31)
 
 ## ggflowchart 1.0.0 2023_05_10
 
