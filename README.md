@@ -1,7 +1,8 @@
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nrennie/ggflowchart/actions/workflows/R-CMD-check.yaml)
+  [![codecov](https://codecov.io/gh/nrennie/ggflowchart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/nrennie/ggflowchart?branch=main)
   [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggflowchart)](https://cran.r-project.org/package=ggflowchart)
-  <!-- badges: end -->
+<!-- badges: end -->
 
 # {ggflowchart} <img src="man/figures/logo.png" align="right" width="120" />
 
@@ -38,12 +39,26 @@ ggflowchart(data)
 
 See [vignettes](https://nrennie.github.io/ggflowchart/articles/) for further examples of usage.
 
+## Aesthetic mappings
+
+Some arguments can be mapped to aesthetics and some cannot. Arguments that can currently be mapped to aesthetics:
+
+* `fill`: must be a valid colour, or the name of a column in `node_data` if mapping to a variable. Fill colours can be changed with e.g. `scale_fill_manual()`.
+* `text_colour` (or `text_color`): must be a valid colour, or the name of a column in `node_data` if mapping to a variable.  Colours can be changed with e.g. `scale_colour_manual()`.
+
+Arguments that *may* be mapped to aesthetics in future:
+
+* `colour` (or `color`) for the outline colour of nodes.
+* `arrow_colour` (or `arrow_color`)
+* `arrow_linewidth`
+* `arrow_linetype`
+* `alpha`
+
 ## Upcoming features
 
-Note: this package is currently a work-in-progress. Upcoming features that are currently listed as issues being worked on include:
+Upcoming features that are currently listed as issues being worked on include:
 
-* Changing node outline `colour` based on node attributes.
-* Changing `linetype` and `colour` of arrows based on edge attributes.
+* Ability to have elliptical (or circular) nodes rather than just rectangles.
 
 If you have a suggestion of an additional feature, or find a bug, please file an issue on the [GitHub repository](https://github.com/nrennie/ggflowchart/issues).
 

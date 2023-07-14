@@ -10,16 +10,17 @@ ggflowchart(
   layout = "tree",
   fill = "white",
   colour = "black",
+  linewidth = 0.5,
   alpha = 1,
   text_colour = "black",
   text_size = 3.88,
+  family = "sans",
   parse = FALSE,
   arrow_colour = "black",
   arrow_size = 0.3,
   arrow_linewidth = 0.5,
   arrow_linetype = "solid",
   arrow_label_fill = "white",
-  family = "sans",
   x_nudge = 0.35,
   y_nudge = 0.25,
   horizontal = FALSE,
@@ -48,6 +49,8 @@ Column names take priority over names of colours. Default \code{"white"}.}
 \item{colour}{Outline colour of nodes. Must be a valid colour name or hex
 code. Default \code{"black"}.}
 
+\item{linewidth}{Width of node outlines. Default 0.5.}
+
 \item{alpha}{Transparency of fill colour in nodes. Default 1.}
 
 \item{text_colour}{Colour of labels in nodes. Must be a valid colour name
@@ -55,6 +58,8 @@ or hex code, or the name of a column in node_data (quoted or unquoted).
 Column names take priority over names of colours. Default \code{"black"}.}
 
 \item{text_size}{Font size of labels in nodes. Default 3.88.}
+
+\item{family}{Font family for node labels. Default \code{"sans"}.}
 
 \item{parse}{If TRUE, the labels will be parsed into expressions
 and displayed as described in ?plotmath. Default \code{FALSE}.}
@@ -69,8 +74,6 @@ code. Default \code{"black"}.}
 \item{arrow_linetype}{Linetype of arrow lines. Default \code{"solid"}.}
 
 \item{arrow_label_fill}{Fill colour of arrow labels. Default \code{"white"}.}
-
-\item{family}{Font family for node labels. Default \code{"sans"}.}
 
 \item{x_nudge}{Distance from centre of edge of node box in x direction.
 Ignored if \code{x_nudge} is a column in \code{node_data}. Default 0.35.}

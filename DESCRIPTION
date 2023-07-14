@@ -1,6 +1,6 @@
 Package: ggflowchart
 Title: Flowcharts with 'ggplot2'
-Version: 1.0.0.9005
+Version: 1.0.0.9006
 Authors@R: 
     person(given = "Nicola",
            family = "Rennie",
@@ -16,7 +16,7 @@ Depends:
 Imports:
   dplyr,
   igraph,
-  ggplot2,
+  ggplot2 (>= 3.4.0),
   purrr,
   rlang,
   tibble, 
