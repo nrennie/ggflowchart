@@ -101,7 +101,7 @@ ggflowchart <- function(data,
     data = data,
     layout = layout,
     node_data = node_data
-    )
+  )
   # add edge attributes
   if (layout == "custom") {
     node_layout <- add_node_attr(
@@ -220,7 +220,7 @@ ggflowchart <- function(data,
     ggplot2::theme_void() +
     ggplot2::theme(
       plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), unit = "cm")
-      )
+    )
   # add arrow edge labels
   if (!is.null(edge_labels)) {
     p <- p +

@@ -59,16 +59,17 @@ library(dplyr)
 
 # generate edges
 data <- tibble::tribble(
-    ~from, ~to,
+  ~from, ~to,
   "A", "B",
   "A", "C",
   "A", "D"
-  )
+)
 
 # use a different layout from {igraph}
 g <- igraph::graph_from_data_frame(
   select(data, c(from, to)),
-  directed = TRUE)
+  directed = TRUE
+)
 coords <- igraph::layout_as_star(g)
 colnames(coords) <- c("x", "y")
 node_data <- tibble::as_tibble(coords) %>%
