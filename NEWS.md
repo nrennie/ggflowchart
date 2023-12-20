@@ -1,4 +1,4 @@
-## ggflowchart 1.0.0.9000+ 2023_07_14
+## ggflowchart 1.0.0.9000+ 2023_12_20
 
 * Add vignette on how to style nodes
 * Add initial unit testing
@@ -7,6 +7,7 @@
 * Add contributor guidelines
 * Add option to parse text in nodes.
 * Update README
+* Update linting
 * Add `alpha` as argument
 * Same level arrows support (issue #5)
 * Add option for custom layout (issue #11)
