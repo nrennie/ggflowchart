@@ -31,4 +31,5 @@ RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Config/Needs/website: nrennie/nrenniepkgdown
 URL: https://nrennie.github.io/ggflowchart/
+BugReports: https://github.com/nrennie/ggflowchart/issues
 Config/testthat/edition: 3
