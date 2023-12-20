@@ -8,6 +8,7 @@
 * Add option to parse text in nodes.
 * Update README
 * Update linting
+* Add link to issues in Description
 * Add `alpha` as argument
 * Same level arrows support (issue #5)
 * Add option for custom layout (issue #11)
